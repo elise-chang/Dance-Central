@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ImageUpload from './ImageUpload';
+import ImageUpload from './components/img_upload.jsx';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
