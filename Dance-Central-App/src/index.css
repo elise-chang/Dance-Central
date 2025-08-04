@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Quicksand&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -66,3 +68,37 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Image Upload Styles */
+h1, h2, h3 {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.upload-container {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.preview-section {
+  margin-top: 10px;
+}
+
+.preview-img {
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.upload-img-btn {
+  background-color: #f9f9f9;
+  color: #213547;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.upload-img-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* */
