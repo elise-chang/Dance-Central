@@ -13,7 +13,7 @@ const Carousel = ({media}) => {
         <div class = "carousel-container">
             <div class = "carousel-track">
                 <div class = "carousel-item" onClick = {prev}>
-                    <img src={media[getIndex[-1]]} alt="Previous " />
+                    <img src={media[getIndex[-1]]} alt="Previous" />
                 </div>
             </div>
         </div>
