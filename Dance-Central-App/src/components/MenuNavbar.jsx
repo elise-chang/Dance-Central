@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import "./menu.css";
 //import Button from './button';
 
 
@@ -8,8 +9,10 @@ const MenuNavbar = () => {
 
     return (
         <div id="menu-bg">
+            <div id="app-name">
             <p>// three line bar</p>
             <h1>APP NAME</h1> 
+            </div>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/calendar">Calendar</Link></li>

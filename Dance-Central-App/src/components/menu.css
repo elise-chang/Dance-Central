@@ -1,0 +1,37 @@
+/* made this file temporarily cause I don't have the buttons yet */
+
+
+#menu-bg {
+    color: #FFD5E3;
+    background: #2F2F2F;
+    display: flex;
+    flex-direction: column;
+    float: left;
+
+}
+
+div {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+li {
+    display: block;
+    background-color: #FF94C8;
+    list-style-type: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+
+a {
+    color: black;
+}
+
+#app-name {
+    flex: 2;
+}
