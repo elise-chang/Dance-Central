@@ -6,21 +6,30 @@
     background: #2F2F2F;
     display: flex;
     flex-direction: column;
-    float: left;
-
+    padding-left: 20px;
+    padding-right: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; 
 }
 
 div {
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
 
-li {
+button {
     display: block;
     background-color: #FF94C8;
     list-style-type: none;
+    width: 100%;
+    border-radius: 2px;
+    margin: 5px;
+    color: #000000;
+
 }
 
-ul {
+.btn-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -28,10 +37,10 @@ ul {
     flex: 1;
 }
 
-a {
-    color: black;
+#menu-spacer {
+    flex: 3;
 }
 
 #app-name {
-    flex: 2;
+    flex: 3;
 }

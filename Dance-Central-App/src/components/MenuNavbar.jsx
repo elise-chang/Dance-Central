@@ -13,14 +13,15 @@ const MenuNavbar = () => {
             <p>// three line bar</p>
             <h1>APP NAME</h1> 
             </div>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/calendar">Calendar</Link></li>
-                <li><Link to="/blocking">Blocking</Link></li>
-                <li><Link to="/casting">Casting</Link></li>
-                <li><Link to="/cleaning">Cleaning</Link></li>
-                <li><Link to="/outfits">Outfits</Link></li>
-            </ul>
+            <div className="btn-container">
+                <button><Link to="/">Home</Link></button>
+                <button><Link to="/calendar">Calendar</Link></button>
+                <button><Link to="/blocking">Blocking</Link></button>
+                <button><Link to="/casting">Casting</Link></button>
+                <button><Link to="/cleaning">Cleaning</Link></button>
+                <button><Link to="/outfits">Outfits</Link></button>
+            </div>
+            <div id="menu-spacer"></div>
             <a>YourName sign out</a>
         </div>
     );
@@ -34,12 +35,12 @@ const MenuNavbar = () => {
             <Link to="/cleaning"><Button id="cleaning-btn">Cleaning</Button></Link>
             <Link to="/outfits"><Button id="outfits-btn">Outfits</Button></Link>
 
-            <li><Link to="/"><Button id="home-btn">Home</Button></Link></li>
-            <li><Link to="/calendar"><Button id="calendar-btn">Calendar</Button></Link></li>
-            <li><Link to="/blocking"><Button id="blocking-btn">Blocking</Button></Link></li>
-            <li><Link to="/casting"><Button id="casting-btn">Casting</Button></Link></li>
-            <li><Link to="/cleaning"><Button id="cleaning-btn">Cleaning</Button></Link></li>
-            <li><Link to="/outfits"><Button id="outfits-btn">Outfits</Button></Link></li>
+            <button><Link to="/"><Button id="home-btn">Home</Button></Link></button>
+            <button><Link to="/calendar"><Button id="calendar-btn">Calendar</Button></Link></button>
+            <button><Link to="/blocking"><Button id="blocking-btn">Blocking</Button></Link></button>
+            <button><Link to="/casting"><Button id="casting-btn">Casting</Button></Link></button>
+            <button><Link to="/cleaning"><Button id="cleaning-btn">Cleaning</Button></Link></button>
+            <button><Link to="/outfits"><Button id="outfits-btn">Outfits</Button></Link></button>
             */
 
 export default MenuNavbar;
