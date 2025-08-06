@@ -18,6 +18,10 @@ div {
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+}
+
 button {
     display: block;
     background-color: #FF94C8;
@@ -26,6 +30,7 @@ button {
     border-radius: 2px;
     margin: 5px;
     color: #000000;
+    font-size: 20px;
 
 }
 

@@ -15,7 +15,11 @@ const Dropdown = (props) => {
 
     return (
         <div>
-            <button onClick={doOpen}>{props.text}</button>
+            <div onClick={doOpen}>
+                <span>{props.text}</span>
+                <></>
+
+            </div>
         </div>
     )
 }
