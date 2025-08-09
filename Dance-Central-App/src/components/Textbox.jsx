@@ -19,4 +19,4 @@ function Textbox() {
     )
 }
 
-export default TextBox
+export default Textbox
