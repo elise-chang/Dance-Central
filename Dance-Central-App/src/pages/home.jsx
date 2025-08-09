@@ -1,4 +1,4 @@
-import Button from "../components/button";
+import Button from "../components/Button";
 import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
@@ -10,8 +10,10 @@ const Home = () => {
             <MenuNavbar />
             <div className="page-heading">
                 <h1>Home Page</h1>
-                <Button icon="?" />
-                <Dropdown text="dropdown" />
+                <div className = "page-heading-right">
+                    <Button className = "help-button" icon="?"/>
+                    <Dropdown className = "dropdown"/>
+                </div>
             </div>
 
             <h2>Reminders</h2>
