@@ -12,7 +12,7 @@ const Home = () => {
                 <h1>Home Page</h1>
                 <div className = "page-heading-right">
                     <Button className = "help-button" icon="?"/>
-                    <Dropdown className = "dropdown"/>
+                    <Dropdown className = "dropdown">TeamName</Dropdown>
                 </div>
             </div>
 
