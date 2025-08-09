@@ -22,7 +22,6 @@ function Textbox() {
                     resize: "none"
                 }}
             />
-            <p>You typed: {text}</p>
         </div>
     )
 }
