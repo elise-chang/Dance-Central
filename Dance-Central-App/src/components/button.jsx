@@ -5,6 +5,8 @@ const Button = ({
     icon,
     image,
     onClick,
+    className
+    // style
 }) => {
     const handleClick = (e) => {
         //implementation
