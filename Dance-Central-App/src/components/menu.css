@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     height: 100%; 
+    align-items: center;
 }
 
 div {
@@ -22,7 +23,7 @@ h1 {
     font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
 }
 
-menu-btn {
+.menu-btn {
     margin: 5px;
     color: #000000;
     font-size: 20px;
@@ -31,7 +32,6 @@ menu-btn {
 .btn-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     flex: 1;
 }

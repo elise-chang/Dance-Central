@@ -1,11 +1,23 @@
 import MenuNavbar from "../components/MenuNavbar";
+import Textbox from "../components/Textbox";
 
 const Home = () => {
     return (
         <div id="home-container">
             <MenuNavbar />
-            <h1>Home Page</h1>
-        </div>
+            <div className="page-heading">
+                <h1>Home Page</h1>
+                <Button icon="?"></Button>
+                <Dropdown />
+            </div>
+
+            <h2>Reminders</h2>
+                <div>
+                    <Textbox />
+                </div>
+            <h2>Calendar</h2>
+                <div>CALENDAR</div>
+  </div>
     );
 };
 
