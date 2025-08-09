@@ -10,8 +10,8 @@ const Home = () => {
             <MenuNavbar />
             <div className="page-heading">
                 <h1>Home Page</h1>
-                <Button icon="?"></Button>
-                <Dropdown />
+                <Button icon="?" />
+                <Dropdown text="dropdown" />
             </div>
 
             <h2>Reminders</h2>
