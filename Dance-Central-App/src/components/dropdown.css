@@ -1,0 +1,14 @@
+.dropdown-bg {
+    color: blue;
+    background-color: pink;;
+}
+
+.dropdown-bg button {
+    cursor: pointer;
+    background-color: #f4efed;
+}
+
+.dropdown-bg button:hover {
+    background-color: #2fe4fd;
+    transition: background-color 0.2s ease;
+}

@@ -22,16 +22,10 @@ h1 {
     font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
 }
 
-button {
-    display: block;
-    background-color: #FF94C8;
-    list-style-type: none;
-    width: 100%;
-    border-radius: 2px;
+menu-btn {
     margin: 5px;
     color: #000000;
     font-size: 20px;
-
 }
 
 .btn-container {
@@ -48,4 +42,8 @@ button {
 
 #app-name {
     flex: 3;
+}
+
+.hidden {
+    display: none;
 }

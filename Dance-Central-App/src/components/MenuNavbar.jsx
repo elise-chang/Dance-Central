@@ -1,26 +1,36 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./menu.css";
-//import Button from './button';
+import Button from './button';
+//import MenuOpenButton from "./MenuOpenButton";
+import threeLines from "../assets/threeLineBar.png"
 
+
+const isMenuOpen = false;
 
 
 const MenuNavbar = () => {
+    const handleMenuClick = () => {
+        if (isMenuOpen) {
+            document.getElementById("menu-bg").classList.remove("hidden");
+        } else if (isMenuOpen == false) {
+            document.getElementById("menu-bg").classList.add("hidden");
+        }
+    }
+
 
     return (
         <div id="menu-bg">
+            <button onClick={handleMenuClick}><img alt="menuBar" src={threeLines} height={50} wideth={50} /></button>
             <div id="app-name">
-            <p>// three line bar</p>
-            <h1>APP NAME</h1> 
+                <h1>Dance <br /> Central</h1> 
             </div>
-            <div className="btn-container">
-                <button><Link to="/">Home</Link></button>
-                <button><Link to="/calendar">Calendar</Link></button>
-                <button><Link to="/blocking">Blocking</Link></button>
-                <button><Link to="/casting">Casting</Link></button>
-                <button><Link to="/cleaning">Cleaning</Link></button>
-                <button><Link to="/outfits">Outfits</Link></button>
-            </div>
+            <Link to="/"><Button text="Home" className="menu-btn">Home</Button></Link>
+            <Link to="/calendar"><Button text="Calendar" className="menu-btn"></Button></Link>
+            <Link to="/blocking"><Button text="Blocking" className="menu-btn"></Button></Link>
+            <Link to="/casting"><Button text="Casting" className="menu-btn"></Button></Link>
+            <Link to="/cleaning"><Button text="Cleaning" className="menu-btn"></Button></Link>
+            <Link to="/outfits"><Button text="Outfits" className="menu-btn"></Button></Link>
             <div id="menu-spacer"></div>
             <a>YourName sign out</a>
         </div>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import './dropdown.css';
+
 const Dropdown = (props) => {
     const [open, setOpen] = React.useState(false);
 
@@ -14,10 +16,13 @@ const Dropdown = (props) => {
     }
 
     return (
-        <div>
-            <div onClick={doOpen}>
+        <div className="dropdown">
+            <div className="dropdown-bg" onClick={doOpen}>
                 <span>{props.text}</span>
-                <></>
+                <ul className="dropdown-menu">
+                    <li className="dropdown-item"><button>{props.text}</button></li>
+                    <li>hi</li>
+                </ul>
 
             </div>
         </div>
