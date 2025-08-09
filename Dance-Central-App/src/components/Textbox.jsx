@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Textbox() {
     const [text, setText] = useState("");
 
     const handleChange = (e) => {
-        setInputValue(e.target.value)
+        setText(e.target.value)
     }
 
     return (
-        <div>
-            <input
+        <div style = {{width: "100%", height: "100%"}}>
+            <textarea
                 type = "text"
                 value = {text}
                 onChange = {handleChange}
-                placeholder = "Type here..."/>
+                rows = "5"
+                placeholder = "Type here..."
+                style = {{
+                    width: "100%",
+                    height: "100%",
+                    boxSizing: "border-box",
+                    resize: "none"
+                }}
+            />
             <p>You typed: {text}</p>
         </div>
     )
