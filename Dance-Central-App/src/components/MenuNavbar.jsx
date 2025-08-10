@@ -6,34 +6,23 @@ import MenuOpenButton from "./MenuOpenButton";
 import threeLines from "../assets/threeLineBar.png"
 
 
-const isMenuOpen = false;
-
-
-const MenuNavbar = () => {
-    const handleMenuClick = () => {
-        if (isMenuOpen) {
-            document.getElementById("menu-bg").classList.remove("hidden");
-        } else if (isMenuOpen == false) {
-            document.getElementById("menu-bg").classList.add("hidden");
-        }
-    }
+const MenuNavbar = (open) => {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(open);
 
 
     return (
         <div id="menu-bg">
-            <div id="menuCloseContainer">
-                <Button icon="≡" onClick ={handleMenuClick} id="menuCloseButton" />
-            </div>
+            <MenuOpenButton open={open} />
             <div id="app-name">
                 <h1>Dance <br /> Central</h1> 
             </div>
             <div className="button-container">
-                <Link to="/"><Button text="Home" className="menu-btn">Home</Button></Link>
-                <Link to="/calendar"><Button text="Calendar" className="menu-btn"></Button></Link>
-                <Link to="/blocking"><Button text="Blocking" className="menu-btn"></Button></Link>
-                <Link to="/casting"><Button text="Casting" className="menu-btn"></Button></Link>
-                <Link to="/cleaning"><Button text="Cleaning" className="menu-btn"></Button></Link>
-                <Link to="/outfits"><Button text="Outfits" className="menu-btn"></Button></Link>
+                <Link to="/" className="menu-btn"><Button text="Home">Home</Button></Link>
+                <Link to="/calendar" className="menu-btn"><Button text="Calendar" ></Button></Link>
+                <Link to="/blocking" className="menu-btn"><Button text="Blocking" ></Button></Link>
+                <Link to="/casting" className="menu-btn"><Button text="Casting" ></Button></Link>
+                <Link to="/cleaning" className="menu-btn"><Button text="Cleaning" ></Button></Link>
+                <Link to="/outfits" className="menu-btn"><Button text="Outfits" ></Button></Link>
             </div>
             <div id="menu-spacer"></div>
             <a>YourName sign out</a>
