@@ -15,6 +15,7 @@
     align-items: center;
     width: 250px;
     text-align: center;
+    transition: display 0.2s;
 }
 
 #menu-bg h1 {
@@ -49,9 +50,9 @@
     flex: 3;
 }
 
-.hidden {
-    display: none;
-    background-color: chartreuse;
+#menuOpenButton {
+    color: chartreuse;
+    position: fixed;
 }
 
 #menuCloseContainer {
