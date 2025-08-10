@@ -5,13 +5,15 @@ import Button from './button';
 import threeLines from "../assets/threeLineBar.png"
 
 
-const MenuNavbar = (open) => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(open);
-    
+const MenuNavbar = (props) => {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(props.open);
+    if (isMenuOpen == "false") {
+        setIsMenuOpen(false);
+    }
+
     React.useEffect(() => {
         const menuBar = document.getElementById("menu-bg");
         if (!menuBar) return;
-        if (isMenuOpen == "home") return;
         if (isMenuOpen) {
             menuBar.style.display = "flex";
         } else if (isMenuOpen == false) {
@@ -20,16 +22,17 @@ const MenuNavbar = (open) => {
     }, [isMenuOpen]);
 
     const handleMenuClick = () => {
-        if (isMenuOpen) {
+        if (props.static == "true") return;
+        if ((isMenuOpen)) {
             setIsMenuOpen(false);
-        } else if (isMenuOpen == false) {
+        } else {
             setIsMenuOpen(true);
         }
     }
     if (!isMenuOpen) {
         return (
             <Button icon="≡" onClick ={handleMenuClick} id="menuOpenButton" />
-        )
+        );
     } else {
         return (
             <div id="menu-bg">
