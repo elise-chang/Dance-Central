@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import TestApp from './pages/testing.jsx';
 import Home from './pages/home.jsx';
+import Blocking from './pages/blocking.jsx';
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TestApp />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/blocking" element={<Blocking />} />
       </Routes>
     </div>
   )
