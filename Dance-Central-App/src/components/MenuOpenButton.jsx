@@ -1,13 +1,12 @@
 import threeLines from "../assets/threeLineBar.png"
 
-const MenuOpenButton = () => {
-    const handleClick = () => {
-        if (onClick) {
-            const isMenuOpen = document.getElementById
+const MenuOpenButton = (e) => {
+    if (onClick) {
+            onClick(e);
+
         }
-    };
     return (
-    <Button icon="≡" onClick ={handleClick} />
+    <Button icon="≡" onClick ={e} />
     );
 };
 

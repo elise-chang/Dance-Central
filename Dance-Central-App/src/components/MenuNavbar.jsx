@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "./menu.css";
 import Button from './button';
-//import MenuOpenButton from "./MenuOpenButton";
+import MenuOpenButton from "./MenuOpenButton";
 import threeLines from "../assets/threeLineBar.png"
 
 
@@ -21,7 +21,9 @@ const MenuNavbar = () => {
 
     return (
         <div id="menu-bg">
-            <button onClick={handleMenuClick}><img alt="menuBar" src={threeLines} height={50} wideth={50} /></button>
+            <div id="menuCloseContainer">
+                <Button icon="≡" onClick ={handleMenuClick} id="menuCloseButton" />
+            </div>
             <div id="app-name">
                 <h1>Dance <br /> Central</h1> 
             </div>

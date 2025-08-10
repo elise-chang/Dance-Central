@@ -47,3 +47,10 @@ h1 {
 .hidden {
     display: none;
 }
+
+#menuCloseContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+}
