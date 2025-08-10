@@ -27,12 +27,14 @@ const MenuNavbar = () => {
             <div id="app-name">
                 <h1>Dance <br /> Central</h1> 
             </div>
-            <Link to="/"><Button text="Home" className="menu-btn">Home</Button></Link>
-            <Link to="/calendar"><Button text="Calendar" className="menu-btn"></Button></Link>
-            <Link to="/blocking"><Button text="Blocking" className="menu-btn"></Button></Link>
-            <Link to="/casting"><Button text="Casting" className="menu-btn"></Button></Link>
-            <Link to="/cleaning"><Button text="Cleaning" className="menu-btn"></Button></Link>
-            <Link to="/outfits"><Button text="Outfits" className="menu-btn"></Button></Link>
+            <div className="button-container">
+                <Link to="/"><Button text="Home" className="menu-btn">Home</Button></Link>
+                <Link to="/calendar"><Button text="Calendar" className="menu-btn"></Button></Link>
+                <Link to="/blocking"><Button text="Blocking" className="menu-btn"></Button></Link>
+                <Link to="/casting"><Button text="Casting" className="menu-btn"></Button></Link>
+                <Link to="/cleaning"><Button text="Cleaning" className="menu-btn"></Button></Link>
+                <Link to="/outfits"><Button text="Outfits" className="menu-btn"></Button></Link>
+            </div>
             <div id="menu-spacer"></div>
             <a>YourName sign out</a>
         </div>

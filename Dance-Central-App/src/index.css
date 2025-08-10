@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #000000;
+  background-color: #f4efed;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -100,4 +100,10 @@ h1, h2, h3 {
   background-color: #e0e0e0;
 }
 
-/* */
+.background-div {
+  background-color: #ffffff;
+  border: #FFD5E3;
+  border-radius: 30px;
+  border-width: 5px;
+
+}
