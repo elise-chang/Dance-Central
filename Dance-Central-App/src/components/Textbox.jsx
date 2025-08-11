@@ -10,10 +10,9 @@ function Textbox() {
     return (
         <div style = {{width: "100%", height: "100%"}}>
             <textarea
-                type = "text"
                 value = {text}
                 onChange = {handleChange}
-                rows = "5"
+                // rows = "5" 
                 placeholder = "Type here..."
                 style = {{
                     width: "100%",

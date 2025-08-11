@@ -17,12 +17,12 @@ const Home = () => {
             </div>
 
             <h2>Reminders</h2>
-                <div>
+                <div style = {{height: "100px"}}>
                     <Textbox />
                 </div>
             <h2>Calendar</h2>
                 <div>CALENDAR</div>
-  </div>
+    </div>
     );
 };
 

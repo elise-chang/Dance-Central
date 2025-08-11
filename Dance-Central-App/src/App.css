@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0;
   padding-left: 2rem;
-  /* padding-right: 2rem; */
+  padding-right: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -96,7 +96,7 @@ ul {
   display: flex;
   flex-direction: column;
   margin-left: 240px;
-  margin-right: 0px;
+  margin-top: 0px;
 }
 
 .help-button {
@@ -116,9 +116,14 @@ ul {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  /* margin-right: 0px; */
 }
 
 .page-heading-right {
     display: flex;
     align-items: center;
 }
+
+/* h1, h2, h3 {
+    margin: 0;
+} */
