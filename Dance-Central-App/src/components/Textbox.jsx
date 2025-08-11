@@ -10,6 +10,7 @@ function Textbox() {
     return (
         <div style = {{width: "100%", height: "100%"}} id="textbox">
             <textarea
+                className= "textbox"
                 value = {text}
                 onChange = {handleChange}
                 // rows = "5" 

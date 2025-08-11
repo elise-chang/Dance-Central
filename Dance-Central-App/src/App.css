@@ -61,6 +61,13 @@ ul {
     justify-content : center;
 }
 
+.text-button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #home-container {
   display: flex;
   flex-direction: column;
