@@ -31,7 +31,9 @@ const MenuNavbar = (props) => {
     }
     if (!isMenuOpen) {
         return (
+            <div id="button-close-container">
             <Button icon="≡" onClick ={handleMenuClick} id="menuOpenButton" />
+            </div>
         );
     } else {
         return (
