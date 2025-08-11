@@ -17,7 +17,7 @@ const Home = () => {
             </div>
 
             <h2>Reminders</h2>
-                <div style = {{height: "100px"}} className="background-div">
+                <div style = {{height: "100px"}}>
                     <Textbox />
                 </div>
             <h2>Calendar</h2>

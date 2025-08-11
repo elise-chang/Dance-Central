@@ -109,7 +109,12 @@ h1, h2, h3 {
   padding: 20px;
 }
 
-dark #textbox {
-  background-color: #e60c79;
-  color: coral;
+textarea {
+  background-color: #ffffff;
+  border: solid #FFD5E3;
+  border-radius: 20px;
+  border-width: 3px;
+  padding: 20px;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  font-weight: 500;
 }
