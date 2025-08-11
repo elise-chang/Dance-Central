@@ -42,7 +42,7 @@ const MenuNavbar = (props) => {
                 <Button icon="≡" onClick ={handleMenuClick} id="menuCloseButton" />
             </div>
                 <div id="app-name">
-                    <h1>Dance <br /> Central</h1> 
+                    <Link to="/home"><h1>Dance <br /> Central</h1></Link>
                 </div>
                 <div className="button-container">
                     <Link to="/" className="menu-btn"><Button text="Home">Home</Button></Link>

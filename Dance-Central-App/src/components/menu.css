@@ -83,3 +83,7 @@ input {
     border-radius: 10px;
     margin-top: 30px;
 }
+
+#app-name a:hover {
+    color: #FFD5E3;
+}
