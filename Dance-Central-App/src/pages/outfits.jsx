@@ -5,12 +5,14 @@ import ColorPalette from "../components/ColorPalette";
 import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
+import ImageUpload from "../components/img_upload";
+import MediaUploader from "../components/MediaUploader";
 
 
 const Outfits = () => {
     return (
         <div id="outfit-container">
-            {/* <MenuNavbar /> */}
+            <MenuNavbar />
             <div className="page-heading outfits-heading">
                 <h1>Outfits</h1>
                 <div className="song-and-concepts">
@@ -25,52 +27,66 @@ const Outfits = () => {
                     <Dropdown className = "dropdown" text =  "Team Name"></Dropdown>
                 </div>
             </div>
-            {/* <ColorPalette /> */}
+            <ColorPalette />
 
             <div className="outfit-photos">
 
-            <section className="pending background-div">
-                <header className="pending-header">
-                    <h2>Pending Outfits</h2>
-                    <Button text="Select" />
-                </header>
-                <div className="pending-photos">
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                </div>
-            </section>
+                <section className="pending background-div">
+                    <header className="pending-header">
+                        <h2>Pending Outfits</h2>
+                        <Button text="Select" />
+                    </header>
+                    <div className="pending-photos">
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                    </div>
+                    <div className="pending-footer">
+                        <Button text = "Approve" />
+                        <Button text = "Decline" />
+                        <Button text = "Cancel" />
+                    </div>
+                </section>
 
-            <section className="inspiration background-div">
-                <header className="inspiration-header">
-                    <h2>Inspiration</h2>
-                </header>
-                <div className="inspiration-buttons">
-                    <Button text="Generate Inspiration" />
-                    <Button text="Upload Images" />
-                    <Button text="Link Pinterest" />
-                    
-                </div>
-                <div className="inspiration-photos">
+                <section className="inspiration background-div">
+                    <header className="inspiration-header">
+                        <h2>Inspiration</h2>
+                    </header>
+                    <div className="inspiration-buttons">
+                        <Button text="Generate Inspiration" />
+                        {/* <Button text="Upload Images" /> */}
+                        <MediaUploader
+                            uploadType="image"
+                            buttonClassName="pink-upload-btn"
+                            onAdd={(items) => {
+                                addMedia(items);
+                                setSelected(items[0]);
+                        }}
+                        />
+                        {/* <ImageUpload /> */}
+                        <Button text="Link Pinterest" />
+                        
+                    </div>
+                    <div className="inspiration-photos">
 
-                </div>
-                <footer className="inspiration-footer">
-                    <Button text="Edit" />
-                </footer>
-            </section>
+                    </div>
+                    <footer className="inspiration-footer">
+                        <Button text="Edit" />
+                    </footer>
+                </section>
 
-            <section className="approved background-div">
-                <header className="approved-header">
-                    <h2>Approved Outfits</h2>
-                    <Button text="Edit" />
-                </header>
-                <div className="approved-photos">
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                </div>
-            </section>
-        </div>
+                <section className="approved background-div">
+                    <header className="approved-header">
+                        <h2>Approved Outfits</h2>
+                        <Button text="Edit" />
+                    </header>
+                    <div className="approved-photos">
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                    </div>
+                </section>
+            </div>
         </div>
     );
 };
