@@ -11,12 +11,18 @@ const Outfits = () => {
     return (
         <div id="outfit-container">
             {/* <MenuNavbar /> */}
-            <div className="page-heading">
+            <div className="page-heading outfits-heading">
                 <h1>Outfits</h1>
-                <Dropdown className = "dropdown"> Song Title</Dropdown>
+                <div className="song-and-concepts">
+                    <Dropdown className = "dropdown" text = "Song Title"></Dropdown>
+                    <div className="concepts-textbox">
+                        <h2>Concepts:</h2>
+                        <Textbox/>
+                    </div>
+                </div>
                 <div className = "page-heading-right">
                     <Button className = "help-button" icon="?"/>
-                    <Dropdown className = "dropdown">TeamName</Dropdown>
+                    <Dropdown className = "dropdown" text =  "Team Name"></Dropdown>
                 </div>
             </div>
             {/* <ColorPalette /> */}
@@ -39,11 +45,14 @@ const Outfits = () => {
                 <header className="inspiration-header">
                     <h2>Inspiration</h2>
                 </header>
-                <div className="inspiration-photos">
+                <div className="inspiration-buttons">
                     <Button text="Generate Inspiration" />
                     <Button text="Upload Images" />
                     <Button text="Link Pinterest" />
                     
+                </div>
+                <div className="inspiration-photos">
+
                 </div>
                 <footer className="inspiration-footer">
                     <Button text="Edit" />

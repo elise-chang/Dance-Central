@@ -61,6 +61,13 @@ ul {
     justify-content : center;
 }
 
+.text-button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #home-container {
   display: flex;
   flex-direction: column;
@@ -92,7 +99,3 @@ ul {
     display: flex;
     align-items: center;
 }
-
-/* h1, h2, h3 {
-    margin: 0;
-} */

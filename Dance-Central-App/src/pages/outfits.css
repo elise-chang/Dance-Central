@@ -8,7 +8,7 @@
 .outfit-photos {
   display: grid;
   /* center column a bit narrower, but all columns can shrink without overflow */
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 1fr);
   gap: 20px;
   margin-top: 16px;
 }
@@ -25,14 +25,42 @@
 .pending-header h2,
 .approved-header h2,
 .inspiration-header h2 {
-  margin: 0; /* removes default h2 margin so it's perfectly aligned */
+  margin: 0;
+  font-size: 2vw;
+  word-break: break-word;
+   /* removes default h2 margin so it's perfectly aligned */
 }
 
 .pending-photos,
-.approved-photos {
+.approved-photos, 
+.inspiration-photos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 8px;
     margin-top: 8px;
 }
 
+.song-and-concepts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 50%
+     /* removes flex gap spacing if you’re using flex */
+}
+
+.song-and-concepts > * {
+    margin: 0; /* removes margins from children */
+    padding: 0; /* removes padding from children */
+}
+
+.concepts-textbox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.concepts-textbox h2 {
+    margin: 0; /* removes h2's default top/bottom margin */
+}
