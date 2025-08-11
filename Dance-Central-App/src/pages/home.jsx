@@ -12,16 +12,16 @@ const Home = () => {
                 <h1>Home Page</h1>
                 <div className = "page-heading-right">
                     <Button className = "help-button" icon="?"/>
-                    <Dropdown className = "dropdown">TeamName</Dropdown>
+                    <Dropdown className = "dropdown" text="TeamName" />
                 </div>
             </div>
 
             <h2>Reminders</h2>
-                <div style = {{height: "100px"}}>
+                <div style = {{height: "100px"}} className="background-div">
                     <Textbox />
                 </div>
             <h2>Calendar</h2>
-                <div>CALENDAR</div>
+                <div className="background-div">CALENDAR</div>
     </div>
     );
 };
