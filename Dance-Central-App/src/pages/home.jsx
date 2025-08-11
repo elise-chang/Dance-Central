@@ -7,7 +7,7 @@ import Textbox from "../components/Textbox";
 const Home = () => {
     return (
         <div id="home-container">
-            <MenuNavbar />
+            <MenuNavbar open="true" static="true" />
             <div className="page-heading">
                 <h1>Home Page</h1>
                 <div className = "page-heading-right">
