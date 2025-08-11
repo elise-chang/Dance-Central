@@ -7,7 +7,7 @@ import Textbox from "../components/Textbox";
 const Home = () => {
     return (
         <div id="home-container">
-            <MenuNavbar />
+            <MenuNavbar open="true" static="true" />
             <div className="page-heading">
                 <h1>Home Page</h1>
                 <div className = "page-heading-right">
@@ -17,12 +17,12 @@ const Home = () => {
             </div>
 
             <h2>Reminders</h2>
-                <div>
+                <div style = {{height: "100px"}}>
                     <Textbox />
                 </div>
             <h2>Calendar</h2>
                 <div>CALENDAR</div>
-  </div>
+    </div>
     );
 };
 

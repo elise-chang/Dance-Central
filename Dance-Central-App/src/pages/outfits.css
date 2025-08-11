@@ -1,0 +1,38 @@
+#outfit-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.outfit-photos {
+  display: grid;
+  /* center column a bit narrower, but all columns can shrink without overflow */
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr) minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.pending-header,
+.approved-header,
+.inspiration-header {
+    display: flex;
+    align-items: center;      /* vertically centers heading & button */
+    justify-content: space-between; /* pushes heading left, button right */
+    margin-bottom: 12px;      /* space below the header */
+}
+
+.pending-header h2,
+.approved-header h2,
+.inspiration-header h2 {
+  margin: 0; /* removes default h2 margin so it's perfectly aligned */
+}
+
+.pending-photos,
+.approved-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
