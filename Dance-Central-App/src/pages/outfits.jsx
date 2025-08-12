@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "../pages/outfits.css"
 
 import Button from "../components/button";
@@ -9,6 +10,11 @@ import MediaUploader from "../components/MediaUploader";
 
 
 const Outfits = () => {
+    const [inspirationGallery, setInspirationGallery] = useState([]);// inspo gallery
+    const addToInspiration = (items) => {
+        const imagesOnly = items.filter(i => i.type === "image");
+        setInspirationGallery(prev => [...prev, ...imagesOnly]);
+    };
     return (
         <div id="outfit-container">
             <MenuNavbar />
@@ -49,14 +55,21 @@ const Outfits = () => {
                 </header>
                 <div className="inspiration-buttons">
                     <Button text="Generate Inspiration" />
-                    <Button text="Upload Images" />
 
+                    <MediaUploader
+                    onAdd={addToInspiration}
+                    uploadType="image"
+                    buttonClassName="btn"  
+                    buttonText="Upload Images" 
+                    />
                     <Button text="Link Pinterest" />
                     
                 </div>
                 <div className="inspiration-photos">
-
-                    </div>
+                {inspirationGallery.map((p) => (
+                    <Button key={p.src} image={p.thumb || p.src} />
+                ))}
+                </div>
                     <footer className="inspiration-footer">
                         <Button text="Edit" />
                     </footer>
