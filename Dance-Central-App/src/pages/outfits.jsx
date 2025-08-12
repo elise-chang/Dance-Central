@@ -5,7 +5,6 @@ import ColorPalette from "../components/ColorPalette";
 import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
-import ImageUpload from "../components/img_upload";
 import MediaUploader from "../components/MediaUploader";
 
 
@@ -31,43 +30,31 @@ const Outfits = () => {
 
             <div className="outfit-photos">
 
-                <section className="pending background-div">
-                    <header className="pending-header">
-                        <h2>Pending Outfits</h2>
-                        <Button text="Select" />
-                    </header>
-                    <div className="pending-photos">
-                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                        <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
-                    </div>
-                    <div className="pending-footer">
-                        <Button text = "Approve" />
-                        <Button text = "Decline" />
-                        <Button text = "Cancel" />
-                    </div>
-                </section>
+            <section className="pending background-div">
+                <header className="pending-header">
+                    <h2>Pending Outfits</h2>
+                    <Button text="Select" />
+                </header>
+                <div className="pending-photos">
+                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                    <Button image = "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg"/>
+                </div>
+            </section>
 
-                <section className="inspiration background-div">
-                    <header className="inspiration-header">
-                        <h2>Inspiration</h2>
-                    </header>
-                    <div className="inspiration-buttons">
-                        <Button text="Generate Inspiration" />
-                        {/* <Button text="Upload Images" /> */}
-                        <MediaUploader
-                            uploadType="image"
-                            buttonClassName="pink-upload-btn"
-                            onAdd={(items) => {
-                                addMedia(items);
-                                setSelected(items[0]);
-                        }}
-                        />
-                        {/* <ImageUpload /> */}
-                        <Button text="Link Pinterest" />
-                        
-                    </div>
-                    <div className="inspiration-photos">
+
+            <section className="inspiration background-div">
+                <header className="inspiration-header">
+                    <h2>Inspiration</h2>
+                </header>
+                <div className="inspiration-buttons">
+                    <Button text="Generate Inspiration" />
+                    <Button text="Upload Images" />
+
+                    <Button text="Link Pinterest" />
+                    
+                </div>
+                <div className="inspiration-photos">
 
                     </div>
                     <footer className="inspiration-footer">
