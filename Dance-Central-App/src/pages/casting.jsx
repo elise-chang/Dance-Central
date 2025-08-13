@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import "../pages/casting.css";
+
 import MenuNavbar from "../components/MenuNavbar";
 import MediaUploader from "../components/MediaUploader";
 import VideoPlayer from "../components/VideoPlayer";
-import "../pages/casting.css";
+import Dropdown from "../components/Dropdown";
+import Button from "../components/button";
 
 export default function Casting() {
   const [media, setMedia] = useState([]);
@@ -96,26 +99,25 @@ export default function Casting() {
 
   return (
         <>
-      <MenuNavbar open="false" static="false" />
+      <MenuNavbar/>
 
-      {/* NEW: top row that pushes the page down */}
+      {/* TOP ROW */}
       <div className="top-row">
-        <div className="top-left">
-          <h2 style={{ margin: 0 }}>Project Controls</h2>
-        </div>
-        <div className="top-right">
-          <MediaUploader
-            uploadType="video"
-            buttonClassName="pink-upload-btn"
-            onAdd={(items) => {
-              addMedia(items);
-              setSelected(items[0]);
-            }}
-          />
-          <button className="pill">Export</button>
-          <button className="pill">Share</button>
-        </div>
+
+      {/* Page Header */}
+      <div className="page-heading-casting">
+        <h1>Casting</h1>
       </div>
+
+      <div className="top-right">
+        <Button 
+          className="help-button"
+          icon="?"
+          onClick={() => alert("Help coming soon")}
+        />
+        <Dropdown className="team-dropdown" text="TeamName" />
+      </div>
+    </div>
 
     <div className="casting">
       {/* LEFT COLUMN */}

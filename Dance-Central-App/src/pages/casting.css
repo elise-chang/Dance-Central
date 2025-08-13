@@ -1,12 +1,30 @@
-/* .top-row {
-  position: sticky;
-  top: 0;            
-  z-index: 10;
-  backdrop-filter: blur(6px);
-  flex-direction: row;
+.top-row {
+  display: flex;                 /* <-- key */
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2rem;               /* match .casting's side padding */
+  margin: 0 0 12px;
+  flex-wrap: nowrap;             /* keep on one line */
+}
+
+.page-heading-casting { 
+  flex: 1 1 auto; 
+  min-width: 0;                  /* prevents overflow pushing to next line */
+  display: block;                /* it doesn't need to be flex */
+}
+
+.page-heading-casting h1 { 
+  margin: 0; 
+}
+
+/* Right-side actions in header */
+.top-right{
   display: flex;
-}  */
-/* .casting { display: flex; flex-direction: column; } */
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
 
 .carousel-nav-wrapper {
   display: flex;
@@ -101,11 +119,12 @@
 }
 .casting {
   display: grid;
-  grid-template-columns: 560px 1fr; /* left fixed, right flexible */
+  grid-template-columns: 1.5fr 1fr; /* left fixed, right flexible */
+  grid-template-rows: auto auto auto; 
   align-items: start;
   gap: 2rem;
   padding: 2rem;
-  background: #f3ece9; 
+  align-items: start; 
 }
 
 .left .song-title {
@@ -146,18 +165,30 @@
   overflow-x: auto;
   padding-bottom: 0.25rem;
   scrollbar-width: thin;
+  grid-auto-columns: var(--thumb-w); 
+  align-items: center; 
 }
+:root {
+  --thumb-w: 60px;         /* width of each slide */
+  --thumb-ratio: 16/9;      /* 16:9 landscape */
+}
+
 .thumb {
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 8px;
   overflow: hidden;
-  height: 80px;
+  /* height: 80px; */
   display: grid;
   place-items: center;
   background: #ffe1eb;
+  width: var(--thumb-w);
+  aspect-ratio: var(--thumb-ratio);
+  height: auto; 
+  align-items: center;  
 }
-.thumb.active { border-color: #ff7aa5; }
+.thumb.active {
+   border-color: #ff7aa5; }
 .thumb img, .thumb video {
   width: 100%;
   height: 100%;
@@ -167,7 +198,7 @@
 .right .tabs {
   display: flex;
   gap: 0.25rem;
-  margin: 0.25rem 0 0.5rem;
+  margin: 0 0 -2px;  
 }
 .tab {
   border: 1px solid #999;
@@ -175,6 +206,7 @@
   padding: 0.4rem 0.8rem;
   border-radius: 6px 6px 0 0;
   font-family: 'Quicksand', sans-serif;
+  border-bottom: none;  
 }
 .tab.active { background: #d9d9d9; }
 .tab.add { padding-inline: 0.6rem; }
@@ -182,6 +214,10 @@
 .notes {
   min-height: 520px;
   border-color: #ffb3cc;
+  border-radius: 0 10px 10px 10px;
+  margin-top: 0;   
+  position: relative;
+  z-index: 1;
 }
 .notes-input {
   width: 100%;
