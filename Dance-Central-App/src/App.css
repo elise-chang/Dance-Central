@@ -71,7 +71,7 @@ ul {
 #home-container {
   display: flex;
   flex-direction: column;
-  margin-left: 240px;
+  margin-left: 285px;
   margin-top: 0px;
 }
 
@@ -81,6 +81,7 @@ ul {
     border-radius: 20px;
     background-color: #00000000;
     border: 1px solid #000000;
+    /* margin */
 }
 
 .dropdown {
@@ -94,7 +95,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* margin-right: 0px; */
+  /* margin-left: px; */
 }
 
 .page-heading-right {
