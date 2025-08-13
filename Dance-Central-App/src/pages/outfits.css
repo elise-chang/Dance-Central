@@ -1,35 +1,28 @@
-/* wrapper */
 #outfit-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* ===== Header ===== */
 .page-heading {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;    /* top-align columns */
+  align-items: flex-start;
   gap: 12px;
 }
 
 .outfits-heading h1 { margin: 10px; }
 
-#outfit-container h1 { font-size: 2.5rem; }
-#outfit-container h2 { font-size: 1.125rem; }
-#outfit-container h3 { font-size: 1rem; }
-
-
 .heading-center {
   flex: 1 1 auto;
   display: flex;
-  flex-direction: column;     /* Song on top, Concepts row beneath */
-  align-items: center;        /* center like Figma */
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
   min-width: 320px;
 }
 
-.song-dropdown { /* optional width feel */
+.song-dropdown {
   min-width: 180px;
 }
 
@@ -48,31 +41,19 @@
 }
 
 .concepts-input {
-  width: 420px;               /* textbox width */
-  /* height: px;               textbox height */
+  width: 420px;
 }
 .concepts-input textarea {
-  height: 100% !important;    /* keep one-line feel */
+  height: 100% !important;
   resize: none;
 }
 
-/* Right-side actions in header */
 .page-heading-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* ===== Palette row =====
-.palette-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
-.palette-row .add-btn { width: 30px; padding: 0; } */
-
-/* ===== 3 columns ===== */
 .outfit-photos {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr) minmax(0, 1fr);
@@ -80,26 +61,21 @@
   align-items: start;
 }
 
-/* --- Panel internal scrolling --- */
 :root {
-  /* tweak this for panel height */
   --panel-max-h: 68vh;
 }
 
-/* cards */
 .background-div {
   background: #fff;
   border: 3px solid #FFD5E3;
   border-radius: 20px;
   padding: 16px;
-
   display: flex;
   flex-direction: column;
-
   min-height: 320px;
   max-height: var(--panel-max-h);
   max-width: 100%;
-  overflow: hidden; /* inner lists scroll instead */
+  overflow: hidden;
 }
 
 .panel-header h2 { margin: 0 0 8px 0; }
@@ -107,19 +83,15 @@
 
 .action-row { display: flex; gap: 8px; margin-top: 12px; }
 
-/* the piece that actually scrolls */
 .panel-scroll,
 .insp-scroll {
   flex: 1 1 auto;
-  min-height: 0;   /* allows child to actually scroll inside flex parent */
+  min-height: 0;
   overflow: auto;
-
-  /* keep content clear of the scrollbar */
   padding-right: 14px;
   scrollbar-gutter: stable both-edges;
 }
 
-/* optional: tidy scrollbar look */
 .panel-scroll::-webkit-scrollbar,
 .insp-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
 .panel-scroll::-webkit-scrollbar-thumb,
@@ -127,10 +99,8 @@
 .panel-scroll::-webkit-scrollbar-track,
 .insp-scroll::-webkit-scrollbar-track { background: transparent; }
 
-/* inspiration controls */
 .insp-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 
-/* keep input + buttons inside the card on any width */
 .pinterest-input-row {
   display: flex;
   flex-wrap: wrap;
@@ -150,31 +120,28 @@
 }
 .pinterest-actions { display: flex; gap: 8px; }
 
-/* ===== THUMBNAILS ===== */
 .thumb-grid {
   display: grid;
   gap: 12px;
 }
-/* Bigger cells and maintain 2w/4h ratio */
 .thumb-grid.tall {
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   justify-items: stretch;
 }
 
-/* ensure thumbs fill the grid track and ignore global button padding */
 .thumb {
   height: 100%;
-  display: block;           /* buttons default to inline-block → force block */
-  padding: 0 !important;    /* override any global `button` padding */
+  display: block;
+  padding: 0 !important;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  aspect-ratio: 2 / 4;      /* 2:4 ratio */
+  aspect-ratio: 2 / 4;
   background: #f6f2f1;
 }
 
-button.thumb {              /* extra specificity vs the global `button` rule */
+button.thumb {
   padding: 0 !important;
 }
 
@@ -185,13 +152,11 @@ button.thumb {              /* extra specificity vs the global `button` rule */
   display: block;
 }
 
-/* selection highlight for Pending */
 .thumb.selected {
   outline: 3px solid #FF94C8;
   box-shadow: 0 0 0 3px #FF94C8 inset;
 }
 
-/* “×” badge smaller and tucked into corner (doesn't block image) */
 .x-btn {
   position: absolute;
   top: 4px;
@@ -209,7 +174,6 @@ button.thumb {              /* extra specificity vs the global `button` rule */
   opacity: 0.9;
 }
 
-/* uploader label like a button */
 label.uploader {
   display: inline-flex;
   align-items: center;
@@ -220,19 +184,15 @@ label.uploader {
 }
 label.uploader:hover { background-color: #FFD5E3; }
 
-/* consistent bottom spacing */
 .page-bottom-spacer { height: 24px; }
 
-/* responsive: stack columns & shrink concepts input */
 @media (max-width: 980px) {
   .outfit-photos { grid-template-columns: 1fr; }
   .heading-center { align-items: stretch; }
   .concepts-input { width: 100%; }
 }
 
-/* --- Keep side menu on top without editing menu.css --- */
 #menu-bg {
-  /* if it's already fixed/absolute, this won't move it—just raises layer */
   z-index: 10000 !important;
 }
 
@@ -240,11 +200,9 @@ label.uploader:hover { background-color: #FFD5E3; }
 #menuCloseButton,
 #button-close-container,
 #menuCloseContainer {
-  /* ensure the hamburger buttons are always above the drawer too */
   z-index: 10010 !important;
 }
 
-/* prevent any Outfits content from accidentally out-stacking the menu */
 #outfit-container,
 .page-heading,
 .palette-row,
@@ -254,20 +212,57 @@ label.uploader:hover { background-color: #FFD5E3; }
   z-index: 0;
 }
 
-/* #inspo-upload-button{
-  border-radius: 3px;
-  background-color: #FF94C8;
-  color: #000000;
-  font-size: 1em;
-  font-family: 'Quicksand';
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.25s;
-  border: none;
-  padding: 5px 20px;
-  margin: 2px;
+#outfit-container .page-heading {
+  align-items: flex-start !important;
 }
 
-#inspo-upload-button:hover {
-  color: #e60c79;
-} */
+#outfit-container .page-heading .dropdown {
+  position: static !important;
+}
+
+#outfit-container .page-heading .dropdown .dropdown-btn {
+  margin-top: 0 !important; 
+}
+
+
+#outfit-container .page-heading .dropdown ul {
+  position: absolute; 
+  z-index: 2;
+}
+
+#outfit-container .outfits-heading h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.inspiration {
+  align-items: center;
+  text-align: center;
+}
+
+.inspiration .insp-controls {
+  justify-content: center;
+}
+
+.inspiration .panel-scroll {
+  display: flex;
+  justify-content: center;
+}
+
+.inspiration .thumb-grid {
+  justify-items: center;
+}
+
+.inspiration .insp-controls {
+  flex-direction: column;
+  align-items: center;
+}
+
+.inspiration .insp-controls > * {
+  width: auto;
+}
+
+#outfit-container .page-heading {
+  padding-left: 40px;
+}
+
