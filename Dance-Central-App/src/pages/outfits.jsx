@@ -303,7 +303,7 @@ const Outfits = () => {
                     uploadType="image"
                     buttonClassName="btn"  
                     buttonText="Upload Images" 
-                    id = "inspo-upload-button"
+                    // id = "inspo-upload-button"
                     />
 
                     <Button text="Link Pinterest" />
