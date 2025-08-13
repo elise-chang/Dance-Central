@@ -105,13 +105,13 @@ export default function Casting() {
       <div className="top-row">
 
       {/* Page Header */}
-      <div className="page-heading-casting">
+      <div className="page-heading-casting ">
         <h1>Casting</h1>
       </div>
 
       <div className="top-right">
         <Button 
-          className="help-button"
+          className="help-button icon-button"
           icon="?"
           onClick={() => alert("Help coming soon")}
         />
