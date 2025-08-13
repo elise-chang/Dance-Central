@@ -36,7 +36,10 @@ const Bookmark =  (data) => {
     }
 
     const deleteCurr = () => {
-
+        loopDel = confirm("Are you sure you want to delete?");
+        while (loopDel) {
+            loopDel = confirm("Are REALLY you sure you want to delete?");
+        }
     }
       
 
