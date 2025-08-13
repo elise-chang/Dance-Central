@@ -103,7 +103,6 @@ export default function MediaUploader({ onAdd, uploadType = "image", buttonClass
         onChange={(e) => handleFiles(e.target.files)}
         hidden
         ref={colorInputRef}
-        
       />
     </label>
   );

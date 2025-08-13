@@ -95,13 +95,29 @@ export default function Casting() {
   };
 
   return (
-    <div className="casting">
-
-      {/* <div className="top-row">
+        <>
       <MenuNavbar open="false" static="false" />
 
-      </div> */}
+      {/* NEW: top row that pushes the page down */}
+      <div className="top-row">
+        <div className="top-left">
+          <h2 style={{ margin: 0 }}>Project Controls</h2>
+        </div>
+        <div className="top-right">
+          <MediaUploader
+            uploadType="video"
+            buttonClassName="pink-upload-btn"
+            onAdd={(items) => {
+              addMedia(items);
+              setSelected(items[0]);
+            }}
+          />
+          <button className="pill">Export</button>
+          <button className="pill">Share</button>
+        </div>
+      </div>
 
+    <div className="casting">
       {/* LEFT COLUMN */}
       <section className="left">
         <h2 className="song-title">Song Title</h2>
@@ -237,5 +253,6 @@ export default function Casting() {
         </div>
       </aside>
     </div>
+    </>
   );
 }

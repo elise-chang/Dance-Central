@@ -72,11 +72,11 @@
 .tab-context-menu button:hover:not(:disabled) {
   background: #f2f2f2 !important;
 }
-.pink-upload-btn {
+/* .pink-upload-btn {
   display: inline-block;
   width: 100%;
   text-align: center;
-}
+} */
 /* .pink-upload-btn span {
   display: inline-block;
   background: #ffb3cc;

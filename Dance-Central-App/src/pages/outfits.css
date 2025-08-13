@@ -254,7 +254,7 @@ label.uploader:hover { background-color: #FFD5E3; }
   z-index: 0;
 }
 
-#inspo-upload-button{
+/* #inspo-upload-button{
   border-radius: 3px;
   background-color: #FF94C8;
   color: #000000;
@@ -270,4 +270,4 @@ label.uploader:hover { background-color: #FFD5E3; }
 
 #inspo-upload-button:hover {
   color: #e60c79;
-}
+} */
