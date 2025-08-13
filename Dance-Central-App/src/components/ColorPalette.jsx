@@ -14,7 +14,7 @@ const ColorPalette = () => {
         const newColor = confirm("Select Color: " + color);
         if (newColor) {
             setColors(oldColors => [...oldColors, color]);
-            alert(colors + "stan loona");
+            //alert(colors + "stan loona");
         }
 
 
