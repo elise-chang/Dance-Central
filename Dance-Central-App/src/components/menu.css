@@ -1,5 +1,11 @@
 /* made this file temporarily cause I don't have the buttons yet */
-
+#page-block {
+    background-color: #00000088;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    margin-left: 1276px;
+}
 
 #menu-bg {
     color: #FFD5E3;

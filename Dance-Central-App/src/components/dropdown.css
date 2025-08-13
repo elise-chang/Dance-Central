@@ -1,6 +1,6 @@
 .dropdown {
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     flex-direction: column;
     /* align-items: center; */
     /* width: 120px; */
