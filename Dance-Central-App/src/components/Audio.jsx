@@ -239,9 +239,20 @@ export default function Audio({ sendTimeStamp }) {
   return (
     <>
       <main>
-            <div className="front-text-audio-container">
-              <div>
-                
+          <div className="front-text-audio-container">
+            <div className="timestamp-match-buttons">
+            <Button text="Match" id="match-button" onClick={handleMatch} />
+                <Button
+                  text="Add Timestamp"
+                  id="timestamp-button"
+                  onClick={() => {
+                    if (sendTimeStamp && audioControl.current) {
+                      sendTimeStamp(audioControl.current.currentTime);
+                    }
+                  }}
+                />
+             </div>
+            <div>
                 <div className="front-audio">
                   <audio
                     id="music-audio"
@@ -267,7 +278,7 @@ export default function Audio({ sendTimeStamp }) {
                                fontWeight: currLyricID === id ? "bold" : "normal",
                                display: "block",
                                padding: "2px 0",
-                               color: "grey"
+                               color: "black"
                              }}
                            >
                              {text}
@@ -397,7 +408,6 @@ export default function Audio({ sendTimeStamp }) {
                 </div>
               </div>
             </div>
-            <Button text="Match" id="match-button" onClick={handleMatch} />
       </main>
     </>
   );

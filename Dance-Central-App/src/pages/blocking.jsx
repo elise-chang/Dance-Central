@@ -11,6 +11,7 @@ export default function Blocking() {
   const [selected, setSelected] = useState(null);
   const [notes, setNotes] = useState("");
   const carouselRef = useRef(null);
+  const audioTimeRef = useRef(null);
 
   const addImages = (items) => {
     setImages((prev) => {
@@ -21,6 +22,14 @@ export default function Blocking() {
       return newItems;
     });
   };
+
+  const handleAddTimestamp = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    const timestamp = `[${minutes}:${seconds < 10 ? "0" : ""}${seconds}] `;
+    setNotes((prev) => prev + timestamp);
+  };
+
 
   useEffect(() => {
     if (!carouselRef.current || !selected) return;
@@ -146,7 +155,7 @@ export default function Blocking() {
           />
         </div>
       </aside>
-      <Audio />
+      <Audio sendTimeStamp={handleAddTimestamp} />
     </div>
     </>
   );
