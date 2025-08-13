@@ -137,8 +137,7 @@
   min-height: 80px;
   min-width: 120px;
 }
-
-/* === UPLOAD BUTTON === */
+/*
 .pink-upload-btn {
   display: inline-block;
   width: 100%;
@@ -156,10 +155,12 @@
   border: 2px solid #ffb3cc;
   transition: background 0.2s, color 0.2s;
 }
+
 .pink-upload-btn span:hover {
   background: #ff7aa5;
   color: #fff;
 }
+*/
 
 /* === RIGHT COLUMN === */
 .blocking-notes {

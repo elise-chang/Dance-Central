@@ -46,7 +46,6 @@ button, .menu-btn {
   font-family: 'Quicksand';
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.25s;
   border: none;
   padding: 5px 20px;
   margin: 2px;
