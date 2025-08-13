@@ -9,6 +9,14 @@ import Button from "../components/button";
 
 
 const Blocking = () => {
+
+  const [timestamp, setTimestamp] = React.useState(0);
+
+  const handleMatch = (time) => {
+    setTimestamp(time);
+  }
+
+
   return (
     <div id="blocking-container">
 
@@ -20,7 +28,7 @@ const Blocking = () => {
               <Dropdown className = "dropdown" text="TeamName" />
           </div>
       </div>
-      <Audio />
+      <Audio sendTimeStamp={handleMatch} />
     </div>
   );
 };
