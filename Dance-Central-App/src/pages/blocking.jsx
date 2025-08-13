@@ -42,17 +42,27 @@ export default function Blocking() {
   }, [selected, images]);
 
   return (
-    <div className="blocking">
-      <MenuNavbar /> 
-      <div className="page-heading">
-               <h1>Blocking</h1>
-               <div className = "page-heading-right">
-                   <Button className = "help-button" icon="?"/>
-                   <Dropdown className = "dropdown" text="TeamName" />
-               </div>
-           </div>
-      <section className="left">
+    <>
+    <MenuNavbar /> 
 
+     <div className="top-row">
+
+      <div className="page-heading-blocking">
+        <h1>Blocking</h1>
+      </div>
+
+      <div className="top-right">
+        <Button 
+          className="help-button"
+          icon="?"
+          onClick={() => alert("Help coming soon")}
+        />
+        <Dropdown className="team-dropdown" text="TeamName" />
+      </div>
+    </div>
+
+    <div className="blocking">
+      <section className="left">
         <div className="image-panel panel">
           {selected ? (
             <img
@@ -138,5 +148,6 @@ export default function Blocking() {
       </aside>
       <Audio />
     </div>
+    </>
   );
 }

@@ -367,7 +367,7 @@ export default function Audio({ sendTimeStamp }) {
                             }
                             }
                         }}
-                        style={{ width: "100%" }}
+                        style={{ width: "95%" }}
                         />
                     </div>
 
