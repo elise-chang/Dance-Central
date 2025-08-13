@@ -1,14 +1,11 @@
 .dropdown-bg {
-    color: rgb(255, 234, 0);
-    background-color: pink;;
+    color: rgb(0, 0, 0);
 }
 
-.dropdown-bg button {
-    cursor: pointer;
-    background-color: #f4efed;
+.dropdown ul {
+    background-color: aqua;
 }
 
-.dropdown-bg button:hover {
-    background-color: #2fe4fd;
-    transition: background-color 0.2s ease;
+.hidden {
+    display: none;
 }

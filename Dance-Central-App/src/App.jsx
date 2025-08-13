@@ -19,10 +19,10 @@ function App() {
         <Route path="/blocking" element={<Blocking />} />
         <Route path="/outfits" element={<Outfits />} />
         <Route path="/casting" element={<Casting />} />
-        <Route path="/calendar" element={<Calendar />} />
+        {/* <Route path="/calendar" element={<Calendar />} /> */}
       </Routes>
     </div>
   )
 }
 
-export default App
+export default App;
