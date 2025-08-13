@@ -1,34 +1,34 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "./button";
 
-const ColorPickerButton = ({ initialColor = "#FF94C8", onPick }) => {
-    const [color, setColor] = React.useState(initialColor);
+const ColorPickerButton = ({ onPick }) => {
+    const [color, setColor] = React.useState();
+    const colorInputRef = useRef(null);
+
+    const activateColorPick = () => {
+        colorInputRef.current.click();
+    }
 
     const handleChange = (e) => {
         const next = e.target.value; // "#RRGGBB"
         setColor(next);
-        onPick && onPick(next);
+        onPick(color);
+        // onPick && onPick(next);
     };
 
     return (
-        <div style={{ position: "relative", display: "inline-block" }}>
-        <Button text="Color Palette" icon="+" />
-
-        <input
-            type="color"
-            value={color}
-            onPick={handleChange}
-            style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: 30,
-                height: 30,
-                background: "transparent",
-                // opacity: 0
-            }}
-        />
+        <div>
+            <Button text="Color Palette" icon="+" onClick={activateColorPick} />
+            <input
+                id="color-input"
+                type="color"
+                value={color}
+                ref={colorInputRef}
+                onChange={handleChange}
+                style={{
+                    display: "none",
+                }}
+            />
         </div>
     );
 };

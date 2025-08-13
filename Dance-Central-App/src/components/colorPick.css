@@ -1,0 +1,15 @@
+.style-1 {
+    display: flex;
+    height: 32;
+    border: 1px solid #ddd;
+    border-radius: 8;
+    overflow: hidden;
+}
+.style-2 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 12;
+}
