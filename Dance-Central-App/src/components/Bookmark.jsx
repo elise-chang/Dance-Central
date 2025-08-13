@@ -17,7 +17,7 @@ const Bookmark =  (data) => {
         setbmid(bmid + 1);
         setFormationNum(null);
         if (bookmarkList.some(item => item.time === time)) {
-            alert("This time stamp already has a bookmark");
+           /* alert("This time stamp already has a bookmark");*/
             return;
         };
         const newBookmark = {id: bmid, time: time, blocking: formationNum};
@@ -36,7 +36,7 @@ const Bookmark =  (data) => {
     }
 
     const deleteCurr = () => {
-
+        
     }
       
 
