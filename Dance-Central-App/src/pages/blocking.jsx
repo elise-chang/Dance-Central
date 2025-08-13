@@ -5,12 +5,19 @@ import Dropdown from "../components/Dropdown";
 import Button from "../components/button";
 import Audio from "../components/Audio";
 import "../pages/blocking.css";
+import Bookmark from "../components/Bookmark";
 
 export default function Blocking() {
+  const [timestamp, setTimestamp] = useState(0);
   const [images, setImages] = useState([]);
   const [selected, setSelected] = useState(null);
   const [notes, setNotes] = useState("");
   const carouselRef = useRef(null);
+
+  const handleMatch = (time) => {
+    setTimestamp(time);
+    //confirm(timestamp);
+  }
 
   const addImages = (items) => {
     setImages((prev) => {
@@ -136,7 +143,8 @@ export default function Blocking() {
           />
         </div>
       </aside>
-      <Audio />
+      <Audio sendTimeStamp={handleMatch} />
+      <Bookmark time={timestamp} />
     </div>
   );
 }
