@@ -6,6 +6,7 @@ import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
 import MediaUploader from "../components/MediaUploader";
+import ColorPalette from "../components/ColorPalette";
 
 const imagePool = [
   "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg",
@@ -32,6 +33,9 @@ const Outfits = () => {
   const [approved, setApproved] = useState([mkItem(5), mkItem(6)]);
   const [selectedIds, setSelectedIds] = useState(new Set());
   const [approvedEdit, setApprovedEdit] = useState(false);
+  const [showInspPrompt, setShowInspPrompt] = useState(false);
+  const [inspPrompt, setInspPrompt] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const pendingCount = pending.length;
   const approvedCount = approved.length;
@@ -119,6 +123,50 @@ const Outfits = () => {
     [pending, selectedIds]
   );
 
+  const handleGenerateInspiration = async () => {
+  if (!inspPrompt.trim()) return;
+  setLoading(true);
+
+  try {
+    const res = await fetch(
+      "https://noggin.rea.gent/delighted-cephalopod-2174",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer rg_v1_car5zlby769d5a0pcyf6r6vdw4cmscvc88c6_ngk",
+        },
+        body: JSON.stringify({ input: inspPrompt }),
+      }
+    );
+
+    const imageUrl = res.url;
+
+    if (!imageUrl) {
+      alert("No inspiration image returned.");
+      return;
+    }
+
+    const newItem = {
+      id: `gen-${Date.now()}`,
+      type: "image",
+      src: imageUrl,
+    };
+
+    addToInspiration([newItem]);
+    setInspPrompt("");
+    setShowInspPrompt(false);
+    } catch (err) {
+    console.error(err);
+    alert("Error generating inspiration.");
+    } finally {
+    setLoading(false);
+    }
+  };
+
+
+
   return (
     <div id="outfit-container">
       <MenuNavbar />
@@ -142,6 +190,10 @@ const Outfits = () => {
           <Dropdown className="team-dropdown" text="TeamName" />
         </div>
       </div>
+
+      <ColorPalette />
+
+      {/* Three Columns */}
       <div className="outfit-photos">
         <section className="pending background-div">
           <header className="panel-header">
@@ -185,8 +237,10 @@ const Outfits = () => {
             <h2>Inspiration</h2>
           </header>
           <div className="insp-controls">
-            <Button text="Generate Inspiration" onClick={generateInspiration} />
-            <MediaUploader
+              <Button
+                text="Generate Inspiration"
+                onClick={() => setShowInspPrompt((s) => !s)}
+              />            <MediaUploader
               onAdd={addToInspiration}
               uploadType="image"
               buttonClassName="pink-upload-btn"
@@ -221,6 +275,32 @@ const Outfits = () => {
               </div>
             </div>
           )}
+
+          {showInspPrompt && (
+            <div className="inspiration-prompt-row">
+              <input
+                type="text"
+                placeholder="Enter prompt for outfit inspiration..."
+                value={inspPrompt}
+                onChange={(e) => setInspPrompt(e.target.value)}
+                onKeyDown={async (e) => {
+                  if (e.key === "Enter") {
+                    await handleGenerateInspiration();
+                  }
+                }}
+                autoFocus
+                className="inspiration-prompt-input"
+              />
+              <Button
+                text="Cancel"
+                onClick={() => {
+                  setInspPrompt("");
+                  setShowInspPrompt(false);
+                }}
+              />
+            </div>
+          )}
+
           <div className="panel-scroll">
             <div className="thumb-grid tall">
               {inspiration.map((p) => {
@@ -273,6 +353,16 @@ const Outfits = () => {
                       ×
                     </button>
                   )}
+                    <MediaUploader
+                    onAdd={addToInspiration}
+                    uploadType="image"
+                    buttonClassName="btn"  
+                    buttonText="Upload Images" 
+                    // id = "inspo-upload-button"
+                    />
+
+                    <Button text="Link Pinterest" />
+                    
                 </div>
               ))}
             </div>

@@ -1,6 +1,23 @@
+#audio-file, #lyrics-file {
+   background-color: #f4efed;
+   font-size: 13px;
+   padding: 4px;
+   width: 35%;
+}
+
+
+.file-uploads {
+   display: flex;
+   flex-flow: row;
+   justify-content: flex-end;
+}
+
+
 .front-text-audio-container {
+    position: relative;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
+    justify-content: flex-end;
 }
 
 .front-text {
@@ -8,6 +25,13 @@
     width: 50%;
     color: rgb(45, 45, 45);
     font-size: 1.0rem;
+}
+
+.timestamp-match-buttons {
+  display: flex;
+  flex-flow: column;
+  width: 200px;
+  gap: 8px;
 }
 
 .front-audio {
@@ -20,21 +44,24 @@
 }
 
 .front-lyrics {
+    display: block;
+    position: absolute;
+    left: 105%;
+    bottom: 140%;
     margin-top: 1.0em;
     padding-left: 0.5em;
-    height: 200px;
-    width: 400px;
+    height: 250px;
+    width: 500px;
     border-radius: 10px;
     overflow: auto;
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     background-color: #FFC8DA;
-}
+  }
 
 .audio-controls {
     display: flex;
-    justify-content: space-between;
-    width: 70%;
-    height: 9px;
+    width: 250%;
+    height: 43px;
     margin-top: 2.0em;
     align-items: center;
     /*opacity: 1.0;*/
@@ -42,8 +69,9 @@
 }
 
 .progressBarContainer {
-    height: 300%;
-    width: 70%; /* initial width */
+    height: 100%;
+    width: 60%; /* initial width */
+    flex-grow: 0.5;
 }
 
 .progressBar {
@@ -55,6 +83,7 @@
   opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
+  border-color: #f4efed;
 }
 
 .progressValue {

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./audio.css";
+import Button from "./button";
 
-export default function Audio() {
+export default function Audio({ sendTimeStamp }) {
   const audioControl = useRef(null);
   const progressBar = useRef(null);
   const progressBarContainer = useRef(null);
@@ -12,6 +13,7 @@ export default function Audio() {
   const [lyricsHTML, setLyricsHTML] = useState(
     sessionStorage.getItem("lyrics") || ""
   );
+
   const [timeStampList, setTimeStampList] = useState([]);
   const [lyricsState, setLyricsState] = useState([]);
   const [currLyricIndex, setCurrLyricIndex] = useState(0);
@@ -174,6 +176,10 @@ export default function Audio() {
     reader.readAsText(lyricsFile);
   }
 
+  const handleMatch = () => {
+    sendTimeStamp(currentTime);
+  }
+
   function parseLyrics(lyricsText) {
     const lyrics = [];
     const timestamps = [];
@@ -233,15 +239,20 @@ export default function Audio() {
   return (
     <>
       <main>
-            <div className="front-text-audio-container">
-              <div>
-                <input
-                  id="audio-file"
-                  type="file"
-                  accept="audio/*"
-                  onChange={setupAudioFile}
+          <div className="front-text-audio-container">
+            <div className="timestamp-match-buttons">
+            <Button text="Match" id="match-button" onClick={handleMatch} />
+                <Button
+                  text="Add Timestamp"
+                  id="timestamp-button"
+                  onClick={() => {
+                    if (sendTimeStamp && audioControl.current) {
+                      sendTimeStamp(audioControl.current.currentTime);
+                    }
+                  }}
                 />
-
+             </div>
+            <div>
                 <div className="front-audio">
                   <audio
                     id="music-audio"
@@ -251,12 +262,6 @@ export default function Audio() {
                   ></audio>
 
                   <div>
-                    <input
-                      id="lyrics-file"
-                      type="file"
-                      accept="text/*"
-                      onChange={setupLyrics}
-                    />
                     <div id="lyrics-display" className="front-lyrics">
                       {lyricsState.map(({ timeSec, text }) => {
                        const id = `lyric-${timeSec}`;
@@ -273,6 +278,7 @@ export default function Audio() {
                                fontWeight: currLyricID === id ? "bold" : "normal",
                                display: "block",
                                padding: "2px 0",
+                               color: "black"
                              }}
                            >
                              {text}
@@ -341,7 +347,7 @@ export default function Audio() {
                         )}
                     </div>
 
-                    <div id="progressBarContainer" className="progressBarContainer" style={{ flexGrow: 1 }}>
+                    <div id="progressBarContainer" className="progressBarContainer">
                         <input
                         id="progressBar"
                         type="range"
@@ -372,7 +378,7 @@ export default function Audio() {
                             }
                             }
                         }}
-                        style={{ width: "100%" }}
+                        style={{ width: "95%" }}
                         />
                     </div>
 
@@ -381,6 +387,24 @@ export default function Audio() {
                         <span id="duration">{formatTime(duration)}</span>
                     </div>
                     </div>
+
+
+                    <div className="file-uploads">
+               <input
+                 id="audio-file"
+                 type="file"
+                 accept="audio/*"
+                 onChange={setupAudioFile}
+               />
+               <input
+                     id="lyrics-file"
+                     type="file"
+                     accept="text/*"
+                     onChange={setupLyrics}
+                   />
+               </div>
+
+
                 </div>
               </div>
             </div>

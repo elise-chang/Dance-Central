@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import "../pages/casting.css";
+
+import MenuNavbar from "../components/MenuNavbar";
 import MediaUploader from "../components/MediaUploader";
 import VideoPlayer from "../components/VideoPlayer";
-import "../pages/casting.css";
+import Dropdown from "../components/Dropdown";
+import Button from "../components/button";
 
 export default function Casting() {
   const [media, setMedia] = useState([]);
@@ -94,6 +98,27 @@ export default function Casting() {
   };
 
   return (
+        <>
+      <MenuNavbar/>
+
+      {/* TOP ROW */}
+      <div className="top-row">
+
+      {/* Page Header */}
+      <div className="page-heading-casting">
+        <h1>Casting</h1>
+      </div>
+
+      <div className="top-right">
+        <Button 
+          className="help-button"
+          icon="?"
+          onClick={() => alert("Help coming soon")}
+        />
+        <Dropdown className="team-dropdown" text="TeamName" />
+      </div>
+    </div>
+
     <div className="casting">
       {/* LEFT COLUMN */}
       <section className="left">
@@ -230,5 +255,6 @@ export default function Casting() {
         </div>
       </aside>
     </div>
+    </>
   );
 }
