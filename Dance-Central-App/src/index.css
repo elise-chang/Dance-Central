@@ -17,7 +17,7 @@
 
 a {
   font-weight: 500;
-  color: #000000;
+  color: #FFD5E3;
   text-decoration: inherit;
 }
 a:hover {
@@ -38,7 +38,7 @@ h1 {
   font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
 }
 
-button, menu-btn {
+button, .menu-btn {
   border-radius: 3px;
   background-color: #FF94C8;
   color: #000000;

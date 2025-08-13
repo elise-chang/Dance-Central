@@ -7,19 +7,19 @@ import DropdownMenu from "./DropdownMenu";
 const Dropdown = (props) => {
     const [open, setOpen] = React.useState(false);
     const [openSymbol, setOpenSymbol] = React.useState(" ▼");
-    const menuId = props.text + "Id"
+    const menuId = props.text.replace(/ /g,'') + "Id"
     const [items, setItems] = React.useState([{id: 1, text: props.text }])
     const [hidden, setHidden] = React.useState(true);
 
-    // React.useEffect(() => {
-    //     const menuBar = document.getElementById("menu-bg");
-    //     if (!menuBar) return;
-    //     if (isMenuOpen) {
-    //         menuBar.style.display = "flex";
-    //     } else if (isMenuOpen == false) {
-    //         menuBar.style.display = "none";
-    //     }
-    // }, [isMenuOpen]);
+    React.useEffect(() => {
+        const dropList = document.getElementById(menuId);
+        if (!dropList) return;
+        if (hidden) {
+            dropList.style.display = "none";
+        } else if (hidden == false) {
+            dropList.style.display = "block";
+        }
+    }, [hidden]);
 
     const doOpen = () => {
 
@@ -51,9 +51,9 @@ const Dropdown = (props) => {
 
     return (
         <div className="dropdown">
-            <Button text={props.text + openSymbol} className="dropdown-bg" onClick={doOpen} />
-            <ul>
-                <li>item</li>
+            <Button text={props.text + openSymbol} className="dropdown-btn" onClick={doOpen} />
+            <ul id={menuId}>
+                <li><Button text={props.text} onClick={doOpen} className="dropdown-item" /></li>
             </ul>
         </div>
     );
