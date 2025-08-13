@@ -1,3 +1,13 @@
+/* .top-row {
+  position: sticky;
+  top: 0;            
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  flex-direction: row;
+  display: flex;
+}  */
+/* .casting { display: flex; flex-direction: column; } */
+
 .carousel-nav-wrapper {
   display: flex;
   align-items: center;
@@ -62,12 +72,12 @@
 .tab-context-menu button:hover:not(:disabled) {
   background: #f2f2f2 !important;
 }
-.pink-upload-btn {
+/* .pink-upload-btn {
   display: inline-block;
   width: 100%;
   text-align: center;
-}
-.pink-upload-btn span {
+} */
+/* .pink-upload-btn span {
   display: inline-block;
   background: #ffb3cc;
   color: #a1003a;
@@ -78,11 +88,11 @@
   cursor: pointer;
   border: 2px solid #ffb3cc;
   transition: background 0.2s, color 0.2s;
-}
-.pink-upload-btn span:hover {
+} */
+/* .pink-upload-btn span:hover {
   background: #ff7aa5;
   color: #fff;
-}
+} */
 .placeholder-thumb {
   background: #ffe1eb;
   border: 2px dashed #ffb3cc;
