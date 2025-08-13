@@ -9,7 +9,9 @@ import "../pages/blocking.css";
 export default function Blocking() {
   const [images, setImages] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState(
+  sessionStorage.getItem("blockingNotes") || ""
+  );
   const carouselRef = useRef(null);
   const audioTimeRef = useRef(null);
 
@@ -27,7 +29,12 @@ export default function Blocking() {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     const timestamp = `[${minutes}:${seconds < 10 ? "0" : ""}${seconds}] `;
-    setNotes((prev) => prev + timestamp);
+    
+    setNotes((prev) => {
+    const newNotes = prev + timestamp;
+    sessionStorage.setItem("blockingNotes", newNotes); // Save to sessionStorage
+    return newNotes;
+    });
   };
 
 
@@ -148,10 +155,14 @@ export default function Blocking() {
       <aside className="right">
         <div className="blocking-notes panel">
           <textarea
-            className="blocking-notes-input"
+             className="blocking-notes-input"
             placeholder="Add notes here..."
             value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            onChange={(e) => {
+              const newNotes = e.target.value;
+              setNotes(newNotes);
+              sessionStorage.setItem("blockingNotes", newNotes); // Save on each edit
+            }}
           />
         </div>
       </aside>

@@ -42,6 +42,7 @@
   aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
 .image-el {
