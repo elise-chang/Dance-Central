@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useRef } from "react"; 
+import Button from "./button";
 
 export default function MediaUploader({ onAdd, uploadType = "image", buttonClassName = "" }) {
+  const colorInputRef = useRef(null);
+
+  const activateColorPick = () => {
+      colorInputRef.current.click();
+  }
 
   // Extract a thumbnail from a video file, avoiding black frames
   const getVideoThumbnail = (file) => {
@@ -89,14 +95,17 @@ export default function MediaUploader({ onAdd, uploadType = "image", buttonClass
 
   return (
     <label className={`uploader ${buttonClassName}`}>
+      <Button text ={"Upload " + uploadType} onClick={activateColorPick}/>
       <input
         type="file"
         accept={accept}
         multiple
         onChange={(e) => handleFiles(e.target.files)}
         hidden
+        ref={colorInputRef}
+        
       />
-      <span>{message}</span>
     </label>
   );
 }
+

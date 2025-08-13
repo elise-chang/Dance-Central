@@ -77,3 +77,21 @@
 .concepts-textbox h2 {
     margin: 0; /* removes h2's default top/bottom margin */
 }
+
+#inspo-upload-button{
+  border-radius: 3px;
+  background-color: #FF94C8;
+  color: #000000;
+  font-size: 1em;
+  font-family: 'Quicksand';
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  border: none;
+  padding: 5px 20px;
+  margin: 2px;
+}
+
+#inspo-upload-button:hover {
+  color: #e60c79;
+}

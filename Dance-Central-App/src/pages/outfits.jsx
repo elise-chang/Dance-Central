@@ -8,7 +8,6 @@ import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
 import MediaUploader from "../components/MediaUploader";
 
-
 const Outfits = () => {
     const [inspirationGallery, setInspirationGallery] = useState([]);// inspo gallery
     const addToInspiration = (items) => {
@@ -61,7 +60,9 @@ const Outfits = () => {
                     uploadType="image"
                     buttonClassName="btn"  
                     buttonText="Upload Images" 
+                    id = "inspo-upload-button"
                     />
+
                     <Button text="Link Pinterest" />
                     
                 </div>

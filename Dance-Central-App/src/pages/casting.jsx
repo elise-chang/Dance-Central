@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MenuNavbar from "../components/MenuNavbar";
 import MediaUploader from "../components/MediaUploader";
 import VideoPlayer from "../components/VideoPlayer";
 import "../pages/casting.css";
@@ -95,6 +96,12 @@ export default function Casting() {
 
   return (
     <div className="casting">
+
+      {/* <div className="top-row">
+      <MenuNavbar open="false" static="false" />
+
+      </div> */}
+
       {/* LEFT COLUMN */}
       <section className="left">
         <h2 className="song-title">Song Title</h2>
