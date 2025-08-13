@@ -1,3 +1,31 @@
+.top-row {
+  display: flex;                 /* <-- key */
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2rem;               /* match .casting's side padding */
+  margin: 0 0 12px;
+  flex-wrap: nowrap;             /* keep on one line */
+}
+
+.page-heading-casting { 
+  flex: 1 1 auto; 
+  min-width: 0;                  /* prevents overflow pushing to next line */
+  display: block;                /* it doesn't need to be flex */
+}
+
+.page-heading-casting h1 { 
+  margin: 0; 
+}
+
+/* Right-side actions in header */
+.top-right{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
 .carousel-nav-wrapper {
   display: flex;
   align-items: center;
@@ -62,12 +90,12 @@
 .tab-context-menu button:hover:not(:disabled) {
   background: #f2f2f2 !important;
 }
-.pink-upload-btn {
+/* .pink-upload-btn {
   display: inline-block;
   width: 100%;
   text-align: center;
-}
-.pink-upload-btn span {
+} */
+/* .pink-upload-btn span {
   display: inline-block;
   background: #ffb3cc;
   color: #a1003a;
@@ -78,11 +106,11 @@
   cursor: pointer;
   border: 2px solid #ffb3cc;
   transition: background 0.2s, color 0.2s;
-}
-.pink-upload-btn span:hover {
+} */
+/* .pink-upload-btn span:hover {
   background: #ff7aa5;
   color: #fff;
-}
+} */
 .placeholder-thumb {
   background: #ffe1eb;
   border: 2px dashed #ffb3cc;
@@ -91,11 +119,12 @@
 }
 .casting {
   display: grid;
-  grid-template-columns: 560px 1fr; /* left fixed, right flexible */
+  grid-template-columns: 1.5fr 1fr; /* left fixed, right flexible */
+  grid-template-rows: auto auto auto; 
   align-items: start;
   gap: 2rem;
   padding: 2rem;
-  background: #f3ece9; 
+  align-items: start; 
 }
 
 .left .song-title {
@@ -136,28 +165,48 @@
   overflow-x: auto;
   padding-bottom: 0.25rem;
   scrollbar-width: thin;
+  grid-auto-columns: var(--thumb-w); 
+  align-items: center; 
 }
+:root {
+  --thumb-w: 180px;   /* make this wider than tall */
+  --thumb-h: 104px;   /* ≈ 16:9; use 100–120px if you want smaller */
+}
+
 .thumb {
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 8px;
   overflow: hidden;
-  height: 80px;
   display: grid;
-  place-items: center;
   background: #ffe1eb;
+  align-items: center;  
+  grid-auto-flow: column;
+  grid-auto-columns: var(--thumb-w);
 }
-.thumb.active { border-color: #ff7aa5; }
+
 .thumb img, .thumb video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.carousel .thumb {
+  width: var(--thumb-w);
+  height: var(--thumb-h);
+  aspect-ratio: auto;                 /* disable ratio wars */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #ffe1eb;
+}
+
 .right .tabs {
   display: flex;
   gap: 0.25rem;
-  margin: 0.25rem 0 0.5rem;
+  margin: 0 0 -2px;  
 }
 .tab {
   border: 1px solid #999;
@@ -165,13 +214,27 @@
   padding: 0.4rem 0.8rem;
   border-radius: 6px 6px 0 0;
   font-family: 'Quicksand', sans-serif;
+  border-bottom: none;  
 }
 .tab.active { background: #d9d9d9; }
 .tab.add { padding-inline: 0.6rem; }
 
+.right {
+  grid-column: 2;        /* right column */
+  grid-row: 1 / -1;      /* span from first to last row */
+  display: flex;         /* stack tabs on top of the notes */
+  flex-direction: column;
+  min-height: 0;         /* allow flex child to shrink in Firefox */
+}
+
 .notes {
   min-height: 520px;
   border-color: #ffb3cc;
+  border-radius: 0 10px 10px 10px;
+  margin-top: 0;   
+  position: relative;
+  z-index: 1;
+  flex: 1; 
 }
 .notes-input {
   width: 100%;
@@ -181,11 +244,27 @@
   font-size: 1rem;
   resize: vertical;
   background: transparent;
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif; 
 }
+
+.notes { min-height: 700px; } 
 
 @media (max-width: 900px) {
   .casting {
     grid-template-columns: 1fr;
   }
+}
+
+.top-right > * {
+  position: static !important;    
+  transform: none !important;     
+  float: none !important;          
+  margin: 0 !important;           
+  display: inline-flex;            
+  align-items: center;
+}
+
+.thumb.active {
+  border: 5px solid #ff7aa5;
+  /* border-color: #ff7aa5;  */
 }

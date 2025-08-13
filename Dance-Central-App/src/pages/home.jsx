@@ -2,6 +2,7 @@ import Button from "../components/button";
 import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
+import calendarImg from "../../public/calendar.png"
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
                     <Textbox />
                 </div>
             <h2>Calendar</h2>
-                <div className="background-div">CALENDAR</div>
+                <div className="background-div"><img alt="calendar" src={calendarImg} /></div>
     </div>
     );
 };

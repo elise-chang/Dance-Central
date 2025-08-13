@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./audio.css";
+import Button from "./button";
 
-export default function Audio() {
+export default function Audio({ sendTimeStamp }) {
   const audioControl = useRef(null);
   const progressBar = useRef(null);
   const progressBarContainer = useRef(null);
@@ -12,6 +13,7 @@ export default function Audio() {
   const [lyricsHTML, setLyricsHTML] = useState(
     sessionStorage.getItem("lyrics") || ""
   );
+
   const [timeStampList, setTimeStampList] = useState([]);
   const [lyricsState, setLyricsState] = useState([]);
   const [currLyricIndex, setCurrLyricIndex] = useState(0);
@@ -174,6 +176,10 @@ export default function Audio() {
     reader.readAsText(lyricsFile);
   }
 
+  const handleMatch = () => {
+    sendTimeStamp(currentTime);
+  }
+
   function parseLyrics(lyricsText) {
     const lyrics = [];
     const timestamps = [];
@@ -261,6 +267,7 @@ export default function Audio() {
                                fontWeight: currLyricID === id ? "bold" : "normal",
                                display: "block",
                                padding: "2px 0",
+                               color: "grey"
                              }}
                            >
                              {text}
@@ -390,6 +397,7 @@ export default function Audio() {
                 </div>
               </div>
             </div>
+            <Button text="Match" id="match-button" onClick={handleMatch} />
       </main>
     </>
   );

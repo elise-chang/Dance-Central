@@ -5,8 +5,9 @@ import Home from './pages/home.jsx';
 import Blocking from './pages/blocking.jsx';
 import Casting from './pages/casting.jsx';
 import Outfits from './pages/outfits.jsx';
-import { Route, Routes } from "react-router-dom";
 import Calendar from './pages/calendar.jsx';
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 
@@ -14,15 +15,15 @@ function App() {
     <div>
       <Routes>
         <Route path="/test" element={<TestApp />} />
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/blocking" element={<Blocking />} />
         <Route path="/outfits" element={<Outfits />} />
         <Route path="/casting" element={<Casting />} />
-        <Route path="/calendar" element={<Calendar />} />
+        {/* <Route path="/calendar" element={<Calendar />} /> */}
       </Routes>
     </div>
   )
 }
 
-export default App
+export default App;
