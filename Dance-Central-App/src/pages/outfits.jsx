@@ -24,6 +24,9 @@ const Outfits = () => {
   const [approved, setApproved] = useState([mkItem(7), mkItem(8), mkItem(9)]);
   const [selectedIds, setSelectedIds] = useState(new Set());
   const [approvedEdit, setApprovedEdit] = useState(false);
+  const [showInspPrompt, setShowInspPrompt] = useState(false);
+  const [inspPrompt, setInspPrompt] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const pendingCount = pending.length;
   const approvedCount = approved.length;
@@ -119,6 +122,50 @@ const Outfits = () => {
     [pending, selectedIds]
   );
 
+  const handleGenerateInspiration = async () => {
+  if (!inspPrompt.trim()) return;
+  setLoading(true);
+
+  try {
+    const res = await fetch(
+      "https://noggin.rea.gent/delighted-cephalopod-2174",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer rg_v1_car5zlby769d5a0pcyf6r6vdw4cmscvc88c6_ngk",
+        },
+        body: JSON.stringify({ input: inspPrompt }),
+      }
+    );
+
+    const imageUrl = res.url;
+
+    if (!imageUrl) {
+      alert("No inspiration image returned.");
+      return;
+    }
+
+    const newItem = {
+      id: `gen-${Date.now()}`,
+      type: "image",
+      src: imageUrl,
+    };
+
+    addToInspiration([newItem]);
+    setInspPrompt("");
+    setShowInspPrompt(false);
+    } catch (err) {
+    console.error(err);
+    alert("Error generating inspiration.");
+    } finally {
+    setLoading(false);
+    }
+  };
+
+
+
   return (
     <div id="outfit-container">
       <MenuNavbar />
@@ -204,8 +251,10 @@ const Outfits = () => {
           </header>
 
           <div className="insp-controls">
-            <Button text="Generate Inspiration" onClick={generateInspiration} />
-            <MediaUploader
+              <Button
+                text="Generate Inspiration"
+                onClick={() => setShowInspPrompt((s) => !s)}
+              />            <MediaUploader
               onAdd={addToInspiration}
               uploadType="image"
               buttonClassName="pink-upload-btn"
@@ -239,6 +288,31 @@ const Outfits = () => {
                   }}
                 />
               </div>
+            </div>
+          )}
+
+          {showInspPrompt && (
+            <div className="inspiration-prompt-row">
+              <input
+                type="text"
+                placeholder="Enter prompt for outfit inspiration..."
+                value={inspPrompt}
+                onChange={(e) => setInspPrompt(e.target.value)}
+                onKeyDown={async (e) => {
+                  if (e.key === "Enter") {
+                    await handleGenerateInspiration();
+                  }
+                }}
+                autoFocus
+                className="inspiration-prompt-input"
+              />
+              <Button
+                text="Cancel"
+                onClick={() => {
+                  setInspPrompt("");
+                  setShowInspPrompt(false);
+                }}
+              />
             </div>
           )}
 
