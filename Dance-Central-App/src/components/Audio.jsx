@@ -235,13 +235,7 @@ export default function Audio() {
       <main>
             <div className="front-text-audio-container">
               <div>
-                <input
-                  id="audio-file"
-                  type="file"
-                  accept="audio/*"
-                  onChange={setupAudioFile}
-                />
-
+                
                 <div className="front-audio">
                   <audio
                     id="music-audio"
@@ -251,12 +245,6 @@ export default function Audio() {
                   ></audio>
 
                   <div>
-                    <input
-                      id="lyrics-file"
-                      type="file"
-                      accept="text/*"
-                      onChange={setupLyrics}
-                    />
                     <div id="lyrics-display" className="front-lyrics">
                       {lyricsState.map(({ timeSec, text }) => {
                        const id = `lyric-${timeSec}`;
@@ -341,7 +329,7 @@ export default function Audio() {
                         )}
                     </div>
 
-                    <div id="progressBarContainer" className="progressBarContainer" style={{ flexGrow: 1 }}>
+                    <div id="progressBarContainer" className="progressBarContainer">
                         <input
                         id="progressBar"
                         type="range"
@@ -381,6 +369,24 @@ export default function Audio() {
                         <span id="duration">{formatTime(duration)}</span>
                     </div>
                     </div>
+
+
+                    <div className="file-uploads">
+               <input
+                 id="audio-file"
+                 type="file"
+                 accept="audio/*"
+                 onChange={setupAudioFile}
+               />
+               <input
+                     id="lyrics-file"
+                     type="file"
+                     accept="text/*"
+                     onChange={setupLyrics}
+                   />
+               </div>
+
+
                 </div>
               </div>
             </div>
