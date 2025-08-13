@@ -357,8 +357,7 @@ const Outfits = () => {
                     onAdd={addToInspiration}
                     uploadType="image"
                     buttonClassName="btn"  
-                    buttonText="Upload Images" 
-                    // id = "inspo-upload-button"
+                    buttonText="Upload Images"
                     />
 
                     <Button text="Link Pinterest" />

@@ -212,20 +212,57 @@ label.uploader:hover { background-color: #FFD5E3; }
   z-index: 0;
 }
 
-/* #inspo-upload-button{
-  border-radius: 3px;
-  background-color: #FF94C8;
-  color: #000000;
-  font-size: 1em;
-  font-family: 'Quicksand';
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.25s;
-  border: none;
-  padding: 5px 20px;
-  margin: 2px;
+#outfit-container .page-heading {
+  align-items: flex-start !important;
 }
 
-#inspo-upload-button:hover {
-  color: #e60c79;
-} */
+#outfit-container .page-heading .dropdown {
+  position: static !important;
+}
+
+#outfit-container .page-heading .dropdown .dropdown-btn {
+  margin-top: 0 !important; 
+}
+
+
+#outfit-container .page-heading .dropdown ul {
+  position: absolute; 
+  z-index: 2;
+}
+
+#outfit-container .outfits-heading h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.inspiration {
+  align-items: center;
+  text-align: center;
+}
+
+.inspiration .insp-controls {
+  justify-content: center;
+}
+
+.inspiration .panel-scroll {
+  display: flex;
+  justify-content: center;
+}
+
+.inspiration .thumb-grid {
+  justify-items: center;
+}
+
+.inspiration .insp-controls {
+  flex-direction: column;
+  align-items: center;
+}
+
+.inspiration .insp-controls > * {
+  width: auto;
+}
+
+#outfit-container .page-heading {
+  padding-left: 40px;
+}
+
