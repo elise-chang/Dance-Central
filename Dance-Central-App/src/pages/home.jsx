@@ -21,7 +21,7 @@ const Home = () => {
                     <Textbox />
                 </div>
             <h2>Calendar</h2>
-                <div className="background-div">CALENDAR</div>
+                <div className="background-div"></div>
     </div>
     );
 };

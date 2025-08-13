@@ -6,17 +6,20 @@ import Blocking from './pages/blocking.jsx';
 import Casting from './pages/casting.jsx';
 import Outfits from './pages/outfits.jsx';
 import { Route, Routes } from "react-router-dom";
+import Calendar from './pages/calendar.jsx';
 
 function App() {
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<TestApp />} />
+        <Route path="/test" element={<TestApp />} />
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/blocking" element={<Blocking />} />
         <Route path="/outfits" element={<Outfits />} />
         <Route path="/casting" element={<Casting />} />
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </div>
   )

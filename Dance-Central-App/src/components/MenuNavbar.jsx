@@ -45,11 +45,11 @@ const MenuNavbar = (props) => {
                     <Link to="/home"><h1>Dance <br /> Central</h1></Link>
                 </div>
                 <div className="button-container">
-                    <Link to="/" className="menu-btn"><Button text="Home">Home</Button></Link>
-                    <Link to="/calendar" className="menu-btn"><Button text="Calendar" ></Button></Link>
+                    <Link to="/home" className="menu-btn"><Button text="Home">Home</Button></Link>
+                    {/* <Link to="/calendar" className="menu-btn"><Button text="Calendar" ></Button></Link> */}
                     <Link to="/blocking" className="menu-btn"><Button text="Blocking" ></Button></Link>
                     <Link to="/casting" className="menu-btn"><Button text="Casting" ></Button></Link>
-                    <Link to="/cleaning" className="menu-btn"><Button text="Cleaning" ></Button></Link>
+                    {/* <Link to="/cleaning" className="menu-btn"><Button text="Cleaning" ></Button></Link> */}
                     <Link to="/outfits" className="menu-btn"><Button text="Outfits" ></Button></Link>
                 </div>
                 <div id="menu-spacer"></div>
