@@ -11,12 +11,23 @@ export default function Blocking() {
   const [timestamp, setTimestamp] = useState(0);
   const [images, setImages] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState(
+  sessionStorage.getItem("blockingNotes") || ""
+  );
   const carouselRef = useRef(null);
+  const audioTimeRef = useRef(null);
 
   const handleMatch = (time) => {
     setTimestamp(time);
-    //confirm(timestamp);
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    const timestamp = `[${minutes}:${seconds < 10 ? "0" : ""}${seconds}] `;
+    
+    setNotes((prev) => {
+    const newNotes = prev + timestamp;
+    sessionStorage.setItem("blockingNotes", newNotes); // Save to sessionStorage
+    return newNotes;
+    });
   }
 
   const addImages = (items) => {
@@ -49,17 +60,27 @@ export default function Blocking() {
   }, [selected, images]);
 
   return (
-    <div className="blocking">
-      <MenuNavbar /> 
-      <div className="page-heading">
-               <h1>Blocking</h1>
-               <div className = "page-heading-right">
-                   <Button className = "help-button" icon="?"/>
-                   <Dropdown className = "dropdown" text="TeamName" />
-               </div>
-           </div>
-      <section className="left">
+    <>
+    <MenuNavbar /> 
 
+     <div className="top-row">
+
+      <div className="page-heading-blocking">
+        <h1>Blocking</h1>
+      </div>
+
+      <div className="top-right">
+        <Button 
+          className="help-button"
+          icon="?"
+          onClick={() => alert("Help coming soon")}
+        />
+        <Dropdown className="team-dropdown" text="TeamName" />
+      </div>
+    </div>
+
+    <div className="blocking">
+      <section className="left">
         <div className="image-panel panel">
           {selected ? (
             <img
@@ -136,15 +157,20 @@ export default function Blocking() {
       <aside className="right">
         <div className="blocking-notes panel">
           <textarea
-            className="blocking-notes-input"
+             className="blocking-notes-input"
             placeholder="Add notes here..."
             value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            onChange={(e) => {
+              const newNotes = e.target.value;
+              setNotes(newNotes);
+              sessionStorage.setItem("blockingNotes", newNotes); // Save on each edit
+            }}
           />
         </div>
       </aside>
       <Audio sendTimeStamp={handleMatch} />
       <Bookmark time={timestamp} />
     </div>
+    </>
   );
 }

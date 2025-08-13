@@ -12,7 +12,7 @@ const Bookmark =  (data) => {
 
 
     React.useEffect(() => {
-        confirm("curr list: " + JSON.stringify(bookmarkList));
+        //confirm("curr list: " + JSON.stringify(bookmarkList));
         setTime(data.time);
         setbmid(bmid + 1);
         setFormationNum(null);
@@ -21,7 +21,7 @@ const Bookmark =  (data) => {
             return;
         };
         const newBookmark = {id: bmid, time: time, blocking: formationNum};
-        confirm(JSON.stringify("new bm! " + newBookmark));
+        //confirm(JSON.stringify("new bm! " + newBookmark));
         setBookmarkList([...bookmarkList, newBookmark]);
         
     }, [data]);
