@@ -7,21 +7,29 @@ import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
 import MediaUploader from "../components/MediaUploader";
 
-const seedImg =
-  "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg";
-const mkItem = (i) => ({ id: `p-${i}`, type: "image", src: seedImg });
+const imagePool = [
+  "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg",
+  "https://i.pinimg.com/736x/75/7b/d9/757bd997dac8dfbfb94bae5b33cd73ed.jpg",
+  "https://i.pinimg.com/736x/b9/ea/62/b9ea62dc300528c71eaf23d05cad42dc.jpg",
+  "https://i.pinimg.com/736x/cc/c4/fe/ccc4fe69739d41b7e564c73a983d90fe.jpg",
+  "https://i.pinimg.com/1200x/85/52/fb/8552fb5ec5974c74b06547a189041e2c.jpg",
+  "https://i.pinimg.com/1200x/f3/6c/b2/f36cb2be344c13f944d4762a123e19d1.jpg"
+];
+
+const mkItem = (i) => ({
+  id: `p-${i}`,
+  type: "image",
+  src: imagePool[i % imagePool.length]
+});
 
 const Outfits = () => {
-  // ----- Pending / Approved -----
   const [pending, setPending] = useState([
     mkItem(1),
     mkItem(2),
     mkItem(3),
     mkItem(4),
-    mkItem(5),
-    mkItem(6),
   ]);
-  const [approved, setApproved] = useState([mkItem(7), mkItem(8), mkItem(9)]);
+  const [approved, setApproved] = useState([mkItem(5), mkItem(6)]);
   const [selectedIds, setSelectedIds] = useState(new Set());
   const [approvedEdit, setApprovedEdit] = useState(false);
 
@@ -60,7 +68,6 @@ const Outfits = () => {
     setApproved((prev) => prev.filter((x) => x.id !== id));
   };
 
-  // ----- Inspiration -----
   const [inspiration, setInspiration] = useState([]);
   const [inspEdit, setInspEdit] = useState(false);
 
@@ -72,7 +79,6 @@ const Outfits = () => {
       prev.filter((x) => (x.id || x.src) !== idOrSrc)
     );
 
-  // Pinterest state
   const [showPinInput, setShowPinInput] = useState(false);
   const [pinInput, setPinInput] = useState("");
   const [pinterestLinks, setPinterestLinks] = useState([]);
@@ -104,15 +110,9 @@ const Outfits = () => {
     if (url) window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  // quick generator for demo
   const generateInspiration = () => {
-    const sample = Array.from({ length: 6 }, (_, i) => ({
-      id: `gen-${Date.now()}-${i}`,
-      type: "image",
-      src: seedImg,
-    }));
-    addToInspiration(sample);
-  };
+  alert("Image generation coming soon");
+};
 
   const allPendingSelected = useMemo(
     () => pending.length > 0 && pending.every((p) => selectedIds.has(p.id)),
@@ -122,12 +122,8 @@ const Outfits = () => {
   return (
     <div id="outfit-container">
       <MenuNavbar />
-
-      {/* Page Header */}
       <div className="page-heading outfits-heading">
         <h1>Outfits</h1>
-
-        {/* Center block: Song Title on top, then Theme : Concepts [textbox] */}
         <div className="heading-center">
           <Dropdown className="song-dropdown" text="Song Title" />
           <div className="concepts-row">
@@ -137,7 +133,6 @@ const Outfits = () => {
             </div>
           </div>
         </div>
-
         <div className="page-heading-right">
           <Button
             className="help-button"
@@ -147,20 +142,11 @@ const Outfits = () => {
           <Dropdown className="team-dropdown" text="TeamName" />
         </div>
       </div>
-
-      {/* Color Palette Row
-      <div className="palette-row">
-        <Button text="Color Palette" onClick={() => alert("Open color palette")} />
-        <Button className="add-btn" icon="+" onClick={() => alert("Add a new palette")} />
-      </div> */}
-
-      {/* Three Columns */}
       <div className="outfit-photos">
-        {/* Pending */}
         <section className="pending background-div">
           <header className="panel-header">
             <div className="title-row">
-              <h2>Pending Outfits ({pendingCount}/# ppl)</h2>
+              <h2>Pending Outfits ({pendingCount}/{pendingCount + approvedCount})</h2>
               <div className="pending-actions">
                 <Button
                   text={allPendingSelected ? "Clear All" : "Select All"}
@@ -171,7 +157,6 @@ const Outfits = () => {
               </div>
             </div>
           </header>
-
           <div className="panel-scroll">
             <div className="thumb-grid tall">
               {pending.map((item) => {
@@ -189,20 +174,16 @@ const Outfits = () => {
               })}
             </div>
           </div>
-
           <div className="action-row">
             <Button text="Approve" onClick={approveSelected} />
             <Button text="Decline" onClick={declineSelected} />
             <Button text="Cancel" onClick={clearSelection} />
           </div>
         </section>
-
-        {/* Inspiration */}
         <section className="inspiration background-div">
           <header className="panel-header">
             <h2>Inspiration</h2>
           </header>
-
           <div className="insp-controls">
             <Button text="Generate Inspiration" onClick={generateInspiration} />
             <MediaUploader
@@ -219,7 +200,6 @@ const Outfits = () => {
               <Button text="Open Pinterest" onClick={openPinterest} />
             )}
           </div>
-
           {showPinInput && (
             <div className="pinterest-input-row">
               <input
@@ -241,7 +221,6 @@ const Outfits = () => {
               </div>
             </div>
           )}
-
           <div className="panel-scroll">
             <div className="thumb-grid tall">
               {inspiration.map((p) => {
@@ -263,7 +242,6 @@ const Outfits = () => {
               })}
             </div>
           </div>
-
           <div className="action-row">
             <Button
               text={inspEdit ? "Done" : "Edit"}
@@ -271,19 +249,16 @@ const Outfits = () => {
             />
           </div>
         </section>
-
-        {/* Approved */}
         <section className="approved background-div">
           <header className="panel-header">
             <div className="title-row">
-              <h2>Approved Outfits ({approvedCount}/# ppl)</h2>
+              <h2>Approved Outfits ({approvedCount}/{pendingCount + approvedCount})</h2>
               <Button
                 text={approvedEdit ? "Done" : "Edit"}
                 onClick={() => setApprovedEdit((s) => !s)}
               />
             </div>
           </header>
-
           <div className="panel-scroll">
             <div className="thumb-grid tall">
               {approved.map((item) => (
@@ -304,7 +279,6 @@ const Outfits = () => {
           </div>
         </section>
       </div>
-
       <div className="page-bottom-spacer" />
     </div>
   );
