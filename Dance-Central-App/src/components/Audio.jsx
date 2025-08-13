@@ -273,6 +273,7 @@ export default function Audio() {
                                fontWeight: currLyricID === id ? "bold" : "normal",
                                display: "block",
                                padding: "2px 0",
+                               color: "grey"
                              }}
                            >
                              {text}

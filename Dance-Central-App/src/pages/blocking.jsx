@@ -11,14 +11,15 @@ import Button from "../components/button";
 const Blocking = () => {
   return (
     <div id="blocking-container">
-      <MenuNavbar />  
+
+      <MenuNavbar open="false" static="false" />  
       <div className="page-heading">
-                <h1>Blocking</h1>
-                <div className = "page-heading-right">
-                    <Button className = "help-button" icon="?"/>
-                    <Dropdown className = "dropdown" text="TeamName" />
-                </div>
-            </div>
+          <h1>Blocking</h1>
+          <div className = "page-heading-right">
+              <Button className = "help-button" icon="?"/>
+              <Dropdown className = "dropdown" text="TeamName" />
+          </div>
+      </div>
       <Audio />
     </div>
   );
