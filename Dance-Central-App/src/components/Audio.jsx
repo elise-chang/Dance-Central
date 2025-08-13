@@ -241,16 +241,7 @@ export default function Audio({ sendTimeStamp }) {
       <main>
           <div className="front-text-audio-container">
             <div className="timestamp-match-buttons">
-            <Button text="Match" id="match-button" onClick={handleMatch} />
-                <Button
-                  text="Add Timestamp"
-                  id="timestamp-button"
-                  onClick={() => {
-                    if (sendTimeStamp && audioControl.current) {
-                      sendTimeStamp(audioControl.current.currentTime);
-                    }
-                  }}
-                />
+            <Button text="Match & Add Timestamp" id="match-button" onClick={handleMatch} />
              </div>
             <div>
                 <div className="front-audio">
