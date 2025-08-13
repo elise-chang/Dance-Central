@@ -6,6 +6,7 @@ import Dropdown from "../components/Dropdown";
 import MenuNavbar from "../components/MenuNavbar";
 import Textbox from "../components/Textbox";
 import MediaUploader from "../components/MediaUploader";
+import ColorPalette from "../components/ColorPalette";
 
 const seedImg =
   "https://i.pinimg.com/736x/19/45/2d/19452d14eca923a236d6e51deae86c79.jpg";
@@ -148,11 +149,7 @@ const Outfits = () => {
         </div>
       </div>
 
-      {/* Color Palette Row
-      <div className="palette-row">
-        <Button text="Color Palette" onClick={() => alert("Open color palette")} />
-        <Button className="add-btn" icon="+" onClick={() => alert("Add a new palette")} />
-      </div> */}
+      <ColorPalette />
 
       {/* Three Columns */}
       <div className="outfit-photos">
