@@ -186,7 +186,7 @@ const Outfits = () => {
             <h2>Inspiration</h2>
           </header>
           <div className="insp-controls">
-            <MediaUploader            <MediaUploader
+            <MediaUploader
               onAdd={addToInspiration}
               uploadType="image"
               buttonClassName="pink-upload-btn"
