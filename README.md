@@ -1,6 +1,6 @@
 # Dance Central
 
-A collaborative **React UI/UX prototype** for organizing dance-team rehearsals and creative planning. The project explores how a single interface can support choreography blocking, casting, and outfit coordination.
+A collaborative **React UI/UX app** for organizing dance-team rehearsals and creative planning. The project explores how a single interface can support choreography blocking, casting, and outfit coordination.
 
 > **Project scope:** This repository contains the frontend prototype, not a production-ready application. It does **not** include the later experimental machine-learning choreography search work.
 
