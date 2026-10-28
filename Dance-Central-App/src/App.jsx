@@ -1,29 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import TestApp from './pages/testing.jsx';
+import './App.css';
 import Home from './pages/home.jsx';
 import Blocking from './pages/blocking.jsx';
 import Casting from './pages/casting.jsx';
 import Outfits from './pages/outfits.jsx';
-import Calendar from './pages/calendar.jsx';
-
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 function App() {
-
   return (
-    <div>
-      <Routes>
-        <Route path="/test" element={<TestApp />} />
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/home" element={<Home />} />
-        <Route path="/blocking" element={<Blocking />} />
-        <Route path="/outfits" element={<Outfits />} />
-        <Route path="/casting" element={<Casting />} />
-        {/* <Route path="/calendar" element={<Calendar />} /> */}
-      </Routes>
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" replace />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/blocking" element={<Blocking />} />
+      <Route path="/casting" element={<Casting />} />
+      <Route path="/outfits" element={<Outfits />} />
+      <Route path="*" element={<Navigate to="/home" replace />} />
+    </Routes>
+  );
 }
 
 export default App;
